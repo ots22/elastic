@@ -1,0 +1,7 @@
+VPATH = ../../src
+
+FC = ifort
+FCFLAGS = -implicitnone -r8 -autodouble -warn all -mkl -no-wrap-margin -g -debug all -traceback -check all -gen-interfaces -warn interfaces -fpe0 -fpe-all=0 -ftrapuv
+LDFLAGS = 
+
+include ../../makefiles/common.mk
