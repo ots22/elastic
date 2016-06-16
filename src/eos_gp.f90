@@ -1,6 +1,7 @@
 module m_eos_gp
   use m_eos
   use m_SparseGP
+  use m_error
   
   public :: eos_gp
 
