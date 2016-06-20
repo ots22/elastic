@@ -10,6 +10,7 @@ module m_eos
      procedure(E), deferred :: E
      procedure(S), deferred :: S
      procedure(stress), deferred :: stress
+     procedure dstress_dg
   end type eos
   
   abstract interface
@@ -32,10 +33,29 @@ module m_eos
        intent(in) S, F
        class(eos) this
        real stress(3,3), S, F(3,3)
-     end function stress      
+     end function stress
   end interface
 
 contains
+  ! finite differences for now: implement something in the python script later
+  function dstress_dg(this, S, F) result(result)
+    use m_matutil, only: inv3
+    class(eos) :: this
+    real, intent(in) :: S, F(3,3)
+    real result(3,3,3,3), g(3,3), g1(3,3), g2(3,3), F1(3,3), F2(3,3)
+    real, parameter :: h=1.0E-6
+    integer k,l ! loop counters
+    do k=1,3; do l=1,3
+       g = inv3(F)
+       g1 = g
+       g2 = g
+       g1(k,l) = g(k,l) + h
+       g2(k,l) = g(k,l) - h
+       F1 = inv3(g1)
+       F2 = inv3(g2)
+       result(:,:,k,l) = (this%stress(S,F2) - this%stress(S,F1))/(2*h)
+    end do; end do
+  end function dstress_dg
 
 ! convert a state vector c of conserved variables to a vector p of
 ! primitive variables

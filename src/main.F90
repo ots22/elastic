@@ -1,6 +1,8 @@
 module m_config
   use m_eos
   use m_eos_romenski
+  use m_plastic
+  use m_plastic_null
   use m_ic
   use m_ic_RP
   use m_bc
@@ -25,14 +27,16 @@ module m_config
   logical div_constraint
   integer div_constraint_step
 ! to specify the equation of state to use
-  character(len=MAX_NAME_LEN) eos_name, ic_type, bc_type
+  character(len=MAX_NAME_LEN) eos_name, plastic_model_name, ic_type, bc_type
   character(len=MAX_FILENAME_LEN) output_filename_stem
 
   namelist/CONFIG/max_wave_speed,outstep,cfl,tmax,dt, &
-       & div_constraint_step,eos_name,ic_type,bc_type,output_filename_stem
+       & div_constraint_step,eos_name,plastic_model_name,ic_type,&
+       & bc_type,output_filename_stem
 
 ! equation of state (determined by eos_name, and set by init_config)
   class(eos), allocatable :: eq
+  class(plastic_model), allocatable :: plmodel
   class(ic), allocatable :: initial_conditions
   class(bc), allocatable :: boundary_conditions
 
@@ -55,11 +59,13 @@ contains
 !   (div_constraint set to .false. further down in this case)
     div_constraint_step = 0
     eos_name = 'none specified'
+    plastic_model_name = 'none specified'
     ic_type = 'none specified'
     bc_type = 'none specified'
     output_filename_stem = 'output_'
 
     read (u, nml=CONFIG)
+    rewind(u)
 
 !   sanity checks on configuration
     call assert(max_wave_speed.gt.0, "max_wave_speed must be set >0")
@@ -67,7 +73,7 @@ contains
     call assert(outstep.gt.0, "outstep must be positive")
     if (div_constraint_step.le.0) div_constraint=.false.
 
-!   handle equation of state, initial conditions, boundary conditions
+!   handle equation of state, plasticity model, initial conditions, boundary conditions
     select case (eos_name)
     case ('Romenski')
        allocate(eos_romenski :: eq)
@@ -75,6 +81,14 @@ contains
        call panic('unknown equation of state requested: ' // eos_name)
     end select
     call eq%init_from_config(u)
+    rewind(u)
+
+    select case (plastic_model_name)
+    case default
+       allocate(plastic_model_null :: plmodel)
+    end select
+    call plmodel%init_from_config(u)
+    rewind(u)
 
     select case (to_lower(ic_type))
     case ('rp','riemann','riemann problem')
@@ -83,6 +97,7 @@ contains
        call panic('unknown initial conditions requested: ' // ic_type)
     end select
     call initial_conditions%init_from_config(u)
+    rewind(u)
 
     select case (to_lower(bc_type))
     case ('offset periodic', 'offset_periodic')
@@ -91,6 +106,8 @@ contains
        call panic('unknown boundary conditions requested: ' // bc_type)
     end select
     call boundary_conditions%init_from_config(u)
+    rewind(u)
+
   end subroutine init_config
 end module m_config
 
@@ -183,10 +200,12 @@ program main
         call x_sweep
         call apply_BC
         call y_sweep
+        call plastic_src
      case (1)
         call y_sweep
         call apply_BC
         call x_sweep
+        call plastic_src
      end select
      call apply_BC
      if (div_constraint) then
@@ -268,6 +287,23 @@ contains
 !$OMP END PARALLEL DO
     sol(:,:,:) = sol_next(:,:,:)
   end subroutine y_sweep
+
+  ! loop over each cell, relax each one to the yield surface
+  subroutine plastic_src
+    real F(3,3), rhoF(3,3)
+    integer ix,iy
+    call store_prim_solution
+    do ix=1,nx
+       do iy=1,ny
+          F = reshape(solp(prim_F,ix,iy),[3,3])
+          call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F)
+          ! prim_F of solp now stores the relaxed deformation gradient
+          ! (the prim_S component is unchanged)
+          solp(prim_F,ix,iy) = reshape(F,[9])
+          sol(:,ix,iy) = prim_to_cons(eq,solp(:,ix,iy))
+       end do
+    end do
+  end subroutine plastic_src
 
   subroutine apply_IC
     use m_ic
