@@ -4,12 +4,12 @@ module m_eos_simple
   private
 
   type, public, extends(eos) :: eos_simple
-  contains
-    procedure E
-    procedure S
-    procedure stress
- end type eos_simple
- 
+   contains
+     procedure E
+     procedure S
+     procedure stress
+  end type eos_simple
+  
 contains
   function E(this, S, F)
     class(eos_simple) :: this
