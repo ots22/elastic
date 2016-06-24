@@ -167,7 +167,6 @@ program main
   call apply_IC
   call apply_BC
   if (div_constraint) call divergence_constraint
-  call store_prim_solution
   call output
 
   stopflag = .false.
@@ -204,7 +203,6 @@ program main
   call apply_BC
   if (div_constraint) call divergence_constraint
 
-  call store_prim_solution
   call output
 
 contains
@@ -329,6 +327,7 @@ contains
   subroutine output
     use m_output
     character(len=MAX_FILENAME_LEN) fname
+    call store_prim_solution
     write (fname,'(A,I0,A)') trim(output_filename_stem), it, '.vtk'
     open(unit=16,file=fname)
     call visit_output(16,it,t,eq,sol,solp)
