@@ -110,10 +110,16 @@ contains
 
     write (u,'(A,I15)') 'CELL_DATA', nx*ny
 
-    call write_scalars_header('rho')
+    call write_scalars_header('rho0detF')
     do iy=1,ny; do ix=1,nx
        F = prim_get_F(psol(:,ix,iy))
        rho = F_density(eq%rho0, F)
+       write (u,'(E16.7E3)') rho
+    end do; end do
+
+    call write_scalars_header('rho')
+    do iy=1,ny; do ix=1,nx
+       rho = prim_get_rho(psol(:,ix,iy))
        write (u,'(E16.7E3)') rho
     end do; end do
 

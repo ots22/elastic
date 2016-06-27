@@ -16,7 +16,7 @@ module m_ic_RP
 
 contains
   subroutine apply(this,eq,u)
-    use m_state, only: nq
+    use m_state, only: nq, F_density
     use m_eos, only: eos, prim_to_cons
     use m_error, only: assert
     use m_matutil, only: rot_z
@@ -28,17 +28,19 @@ contains
     real a
 
     integer nx, ny, iy, iq, xoff
-    real v_left(3), F_left(3,3), S_left
-    real v_right(3), F_right(3,3), S_right
+    real rho_left, v_left(3), F_left(3,3), S_left
+    real rho_right, v_right(3), F_right(3,3), S_right
     real, dimension(nq) :: left_prim_state, right_prim_state
     real, dimension(nq) :: left_cons_state, right_cons_state
-    
+
     real R(3,3), x, xfrac, xcorr
 
     a = this%a
+    rho_left = F_density(eq%rho0,this%F_left)
     v_left  = this%v_left
     F_left  = this%F_left 
     S_left  = this%S_left 
+    rho_right = F_density(eq%rho0,this%F_right)
     v_right = this%v_right
     F_right = this%F_right
     S_right = this%S_right
@@ -52,8 +54,8 @@ contains
 !   rotate everything: original 1d test problem, use identity
     R = rot_z(a)
 
-    left_prim_state  = [matmul(R,v_left),  matmul(R,F_left),  S_left]
-    right_prim_state = [matmul(R,v_right), matmul(R,F_right), S_right]
+    left_prim_state  = [rho_left, matmul(R,v_left),  matmul(R,F_left),  S_left]
+    right_prim_state = [rho_right, matmul(R,v_right), matmul(R,F_right), S_right]
 
     left_cons_state  = prim_to_cons(eq,left_prim_state)
     right_cons_state = prim_to_cons(eq,right_prim_state)

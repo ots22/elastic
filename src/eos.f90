@@ -45,16 +45,17 @@ contains
     class(eos) eq
     real, dimension(nq) :: c, p
     real spfc_vol
-    real v(3), F(3,3), E, S
+    real rho, v(3), F(3,3), E, S
 
     spfc_vol = 1/rhoF_density(eq%rho0, cons_get_rhoF(c))
 
+    rho = cons_get_rho(c)
     v = spfc_vol * cons_get_mom(c)
     F = spfc_vol * cons_get_rhoF(c)
     E = spfc_vol * cons_get_rhoE(c) - 0.5*dot_product(v,v)
     S = eq%S(E, F)
 
-    p = [v, F, S]
+    p = [rho, v, F, S]
   end function cons_to_prim
 
   function prim_to_cons(eq, p) result(c)
@@ -64,8 +65,9 @@ contains
     real, dimension(nq) :: p, c
     real density 
     real v(3), F(3,3), S 
-    real mom(3), rhoF(3,3), rhoE
+    real rho, mom(3), rhoF(3,3), rhoE
     
+    rho = prim_get_rho(p)
     v = prim_get_v(p)
     F = prim_get_F(p)
     S = prim_get_S(p)
@@ -76,6 +78,6 @@ contains
     rhoF = density * F
     rhoE = density * (eq%E(S, F) + 0.5*dot_product(v,v))
 
-    c = [mom, rhoF, rhoE]
+    c = [rho, mom, rhoF, rhoE]
   end function prim_to_cons
 end module m_eos
