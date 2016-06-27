@@ -124,6 +124,18 @@ contains
     inv(3,3) =  (A(1,1)*A(2,2) - A(2,1)*A(1,2)) * invdet;
   end function inv3
 
+  ! The matrix deviator
+  pure function dev3(A)
+    real, intent(in) :: A(3,3)
+    real tr_3, dev3(3,3)
+    integer i
+    tr_3 = (A(1,1) + A(2,2) + A(3,3))/3.0
+    dev3 = A
+    do i=1,3
+       dev3(i,i) = dev3(i,i) - tr_3
+    end do
+  end function dev3
+
   pure function curl_z(u)
     real, intent(in) :: u(:,-1:,-1:)
     real curl_z
