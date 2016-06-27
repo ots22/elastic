@@ -186,6 +186,7 @@ program main
 
   call apply_IC
   call apply_BC
+  call rescale_rhoF
   if (div_constraint) call divergence_constraint
   call output
 
@@ -211,6 +212,7 @@ program main
         call plastic_src
      end select
      call apply_BC
+     call rescale_rhoF
      if (div_constraint) then
         if (mod(it,div_constraint_step).eq.0) call divergence_constraint
      end if
@@ -222,6 +224,7 @@ program main
      write (0,*) it, t, time-clock_start
   end do
 
+  call rescale_rhoF
   call apply_BC
   if (div_constraint) call divergence_constraint
 
@@ -320,6 +323,24 @@ contains
     call boundary_conditions%apply(eq,sol,nb)
     !call offset_periodic(sol,nb)
   end subroutine apply_BC
+
+  ! rescale rhoF so that rho0*det(F) is relaxed to the conserved density
+  subroutine rescale_rhoF
+    use m_matutil, only: det3
+    real scale_factor, target_det, actual_det
+    integer ix,iy
+    do iy=1,ny; do ix=1,nx
+       target_det = eq%rho0 * sol(cons_rho,ix,iy)**2
+       actual_det = det3(cons_get_rhoF(sol(:,ix,iy)))
+       ! Miller-Collela (2001): stability of the rescaling depends on
+       ! a relaxation time of six timesteps
+       scale_factor = 1 + ((target_det/actual_det)**(1.0/3.0) - 1)/6.0
+       ! remember: reducing detF increases the density, so if the
+       ! density computed from rhoF is too small, want to scale rhoF
+       ! down.
+       sol(cons_rhoF,ix,iy) = scale_factor * sol(cons_rhoF,ix,iy)
+    end do; end do
+  end subroutine rescale_rhoF
 
   ! applies the constraint \partial_k (\rho F_kj) = 0
   subroutine divergence_constraint

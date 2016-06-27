@@ -1,8 +1,8 @@
 module m_state
-  integer, parameter :: nq=13
+  integer, parameter :: nq=14
 
-  integer, parameter :: prim_v(3)=[1,2,3], prim_F(9)=[4,5,6,7,8,9,10,11,12], prim_S=13
-  integer, parameter :: cons_mom(3)=[1,2,3], cons_rhoF(9)=[4,5,6,7,8,9,10,11,12], cons_rhoE=13
+  integer, parameter :: prim_rho=1, prim_v(3)=[2,3,4], prim_F(9)=[5,6,7,8,9,10,11,12,13], prim_S=14
+  integer, parameter :: cons_rho=1, cons_mom(3)=[2,3,4], cons_rhoF(9)=[5,6,7,8,9,10,11,12,13], cons_rhoE=14
 contains
   pure function Finger_G(F) result (G)
     use m_matutil, only: inv3
@@ -29,40 +29,52 @@ contains
     forall(i=1:3,j=1:3) dC_dF(i,j) = -C(i,q)*F_inv(j,p) - C(j,q)*F_inv(i,p)
   end function dC_dF
   
+  pure function prim_get_rho(u) result(rho)
+    real, intent(in) :: u(nq)
+    real rho
+    rho = u(prim_rho)
+  end function prim_get_rho
+
   pure function prim_get_v(u) result (v)
     real, intent(in) :: u(nq)
     real v(3)
-    v = u(1:3)
+    v = u(prim_v)
   end function prim_get_v
 
   pure function prim_get_F(u) result(F)
     real, intent(in) :: u(nq)
     real F(3,3)
-    F = reshape(u(4:12),[3,3])
+    F = reshape(u(prim_F),[3,3])
   end function prim_get_F
 
   pure function prim_get_S(u) result(S)
     real, intent(in) :: u(nq)
     real S
-    S = u(13)
+    S = u(prim_S)
   end function prim_get_S
   
+  pure function cons_get_rho(u) result(rho)
+    real, intent(in) :: u(nq)
+    real rho
+    rho = u(cons_rho)
+  end function cons_get_rho
+
   pure function cons_get_mom(u) result (mom)
     real, intent(in) :: u(nq)
     real mom(3)
-    mom = u(1:3)    
+    mom = u(cons_mom)    
   end function cons_get_mom
 
   pure function cons_get_rhoF(u) result(rhoF)
     real, intent(in) :: u(nq)
     real rhoF(3,3)
-    rhoF = reshape(u(4:12),[3,3])
+    rhoF = reshape(u(cons_rhoF),[3,3])
   end function cons_get_rhoF
 
   pure function cons_get_rhoE(u) result(rhoE)
     real, intent(in) :: u(nq)
     real rhoE
-    rhoE = u(13)
+    rhoE = u(cons_rhoE)
   end function cons_get_rhoE
 
   pure function rhoF_density(rho0, rhoF) result(density)
