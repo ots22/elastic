@@ -17,6 +17,7 @@
 ./matutil.o ./m_matutil.mod : ../../src/matutil.f90 
 ./output.o ./m_output.mod : ../../src/output.f90 ./m_domain.mod ./m_eos.mod ./m_state.mod ./m_matutil.mod 
 ./plastic.o ./m_plastic.mod : ../../src/plastic.f90 ./m_error.mod ./m_matutil.mod ./m_eos.mod ./m_state.mod ./m_configurable.mod 
+./plastic_mises_huber.o ./m_plastic_mises_huber.mod : ../../src/plastic_mises_huber.f90 ./m_error.mod ./m_matutil.mod ./m_plastic.mod 
 ./plastic_null.o ./m_plastic_null.mod : ../../src/plastic_null.f90 ./m_plastic.mod 
 ./poisson.o ./m_poisson.mod : ../../src/poisson.f90 ./m_matutil.mod ./m_error.mod 
 ./ssprk3.o ./m_ssprk3.mod : ../../src/ssprk3.f90 ./m_error.mod 
@@ -24,4 +25,4 @@
 ./string.o ./m_string.mod : ../../src/string.f90 
 ./time.o ./m_time.mod : ../../src/time.f90 
 ./weno.o ./m_weno.mod : ../../src/weno.f90 ./m_matutil.mod ./m_error.mod 
-./main.o ./m_simulation_data.mod ./m_config.mod : ../../src/main.F90 ./m_output.mod ./m_matutil.mod ./m_poisson.mod ./m_l.mod ./m_materials.mod ./m_weno.mod ./m_flux.mod ./m_ssprk3.mod ./m_time.mod ./m_state.mod ./m_domain.mod ./m_string.mod ./m_error.mod ./m_bc_offset_periodic.mod ./m_bc.mod ./m_ic_rp.mod ./m_ic.mod ./m_plastic_null.mod ./m_plastic.mod ./m_eos_romenski.mod ./m_eos.mod 
+./main.o ./m_simulation_data.mod ./m_config.mod : ../../src/main.F90 ./m_output.mod ./m_matutil.mod ./m_poisson.mod ./m_l.mod ./m_materials.mod ./m_weno.mod ./m_flux.mod ./m_ssprk3.mod ./m_time.mod ./m_state.mod ./m_domain.mod ./m_string.mod ./m_error.mod ./m_bc_offset_periodic.mod ./m_bc.mod ./m_ic_rp.mod ./m_ic.mod ./m_plastic_mises_huber.mod ./m_plastic_null.mod ./m_plastic.mod ./m_eos_romenski.mod ./m_eos.mod 

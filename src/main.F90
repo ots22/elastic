@@ -3,6 +3,7 @@ module m_config
   use m_eos_romenski
   use m_plastic
   use m_plastic_null
+  use m_plastic_mises_huber
   use m_ic
   use m_ic_RP
   use m_bc
@@ -83,7 +84,9 @@ contains
     call eq%init_from_config(u)
     rewind(u)
 
-    select case (plastic_model_name)
+    select case (to_lower(plastic_model_name))
+    case ('mises-huber','mises huber')
+       allocate(plastic_model_mises_huber :: plmodel)
     case default
        allocate(plastic_model_null :: plmodel)
     end select
