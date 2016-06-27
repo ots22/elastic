@@ -32,37 +32,37 @@ contains
   pure function prim_get_v(u) result (v)
     real, intent(in) :: u(nq)
     real v(3)
-    v = u(1:3)
+    v = u(prim_v)
   end function prim_get_v
 
   pure function prim_get_F(u) result(F)
     real, intent(in) :: u(nq)
     real F(3,3)
-    F = reshape(u(4:12),[3,3])
+    F = reshape(u(prim_F),[3,3])
   end function prim_get_F
 
   pure function prim_get_S(u) result(S)
     real, intent(in) :: u(nq)
     real S
-    S = u(13)
+    S = u(prim_S)
   end function prim_get_S
   
   pure function cons_get_mom(u) result (mom)
     real, intent(in) :: u(nq)
     real mom(3)
-    mom = u(1:3)    
+    mom = u(cons_mom)    
   end function cons_get_mom
 
   pure function cons_get_rhoF(u) result(rhoF)
     real, intent(in) :: u(nq)
     real rhoF(3,3)
-    rhoF = reshape(u(4:12),[3,3])
+    rhoF = reshape(u(cons_rhoF),[3,3])
   end function cons_get_rhoF
 
   pure function cons_get_rhoE(u) result(rhoE)
     real, intent(in) :: u(nq)
     real rhoE
-    rhoE = u(13)
+    rhoE = u(cons_rhoE)
   end function cons_get_rhoE
 
   pure function rhoF_density(rho0, rhoF) result(density)
