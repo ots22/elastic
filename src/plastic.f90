@@ -76,7 +76,7 @@ contains
     real id3(3,3) ! identity matrix
 
     integer iiter
-    integer, parameter :: maxiter=100
+    integer, parameter :: maxiter=10
 
     real dsigma_dge_(3,3,3,3), dsigma_dFp_(3,3,3,3), dge_dFp_(3,3,3,3), yield_f
     real df_dzeta_, df_dsigma_(3,3), dFpdot_dzeta_(3,3), sigma(3,3), sigma0(3,3)
@@ -102,13 +102,15 @@ contains
 
        if (yield_f.le.eps) return
 
-       dsigma_dge_ = eq%dstress_dg(S,Fe)
-       dge_dFp_ = dge_dFp(gtot)
+       if (iiter.eq.1) then
+          dsigma_dge_ = eq%dstress_dg(S,Fe)
+          dge_dFp_ = dge_dFp(gtot)
 
-       dsigma_dFp_ = 0
-       do i=1,3; do j=1,3; do k=1,3; do l=1,3; do m=1,3; do n=1,3
-          dsigma_dFp_(i,j,m,n) = dsigma_dFp_(i,j,m,n) + dsigma_dge_(i,j,k,l) * dge_dFp_(k,l,m,n)
-       end do; end do; end do; end do; end do; end do
+          dsigma_dFp_ = 0
+          do i=1,3; do j=1,3; do k=1,3; do l=1,3; do m=1,3; do n=1,3
+             dsigma_dFp_(i,j,m,n) = dsigma_dFp_(i,j,m,n) + dsigma_dge_(i,j,k,l) * dge_dFp_(k,l,m,n)
+          end do; end do; end do; end do; end do; end do
+       end if
 
        df_dsigma_ = plmodel%df_dstress(sigma)
 
@@ -121,7 +123,6 @@ contains
 
        dzeta = -yield_f/df_dzeta_
 
-       ! update other things
        Fp_unscaled = Fp + dFpdot_dzeta_ * dzeta
        Fp = det3(Fp_unscaled)**(-1.0/3.0) * Fp
 
@@ -130,7 +131,9 @@ contains
           sigma(i,j) = sigma(i,j) + dsigma_dFp_(i,j,k,l) * (Fp(k,l) - id3(k,l))
        end do; end do; end do; end do
 
+       ge = matmul(Fp,gtot)
+       Fe = inv3(ge)
     end do
-    call warn('reached maximum iterations in plastic_relax. Continuing.')
+!    call warn('reached maximum iterations in plastic_relax. Continuing.')
   end subroutine plastic_relax
 end module m_plastic
