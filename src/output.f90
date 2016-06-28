@@ -64,7 +64,7 @@ contains
 !   end subroutine make_output
 
   subroutine visit_output(u,it,t,eq,sol,psol)
-    use m_matutil, only: curl_z, div_2d, inv3
+    use m_matutil, only: curl_z, div_2d, inv3, dev3
     use m_state
     use m_eos
     use m_domain
@@ -121,6 +121,11 @@ contains
     do iy=1,ny; do ix=1,nx
        rho = prim_get_rho(psol(:,ix,iy))
        write (u,'(E16.7E3)') rho
+    end do; end do
+
+    call write_scalars_header('dev_stress')
+    do iy=1,ny; do ix=1,nx
+       write (u,'(E16.7E3)') norm2(dev3(eq%stress(prim_get_S(psol(:,ix,iy)),prim_get_F(psol(:,ix,iy)))))
     end do; end do
 
     write (u,'(A)') 'VECTORS velocity FLOAT'
