@@ -15,12 +15,14 @@ contains
     class(plastic_model_null) this
     intent(in) stress
     real stress(3,3), yield_f
+    yield_f = -1.0 * huge(1.0)
   end function yield_f
 
   function df_dstress(this, stress)
     class(plastic_model_null) this
     intent(in) stress
     real stress(3,3), df_dstress(3,3)
+    df_dstress = 0.0
   end function df_dstress
 
 end module m_plastic_null
