@@ -45,15 +45,15 @@ contains
     real result(3,3,3,3), g(3,3), g1(3,3), g2(3,3), F1(3,3), F2(3,3)
     real, parameter :: h=1.0E-6
     integer k,l ! loop counters
+    g = inv3(F)
     do k=1,3; do l=1,3
-       g = inv3(F)
        g1 = g
        g2 = g
        g1(k,l) = g(k,l) + h
        g2(k,l) = g(k,l) - h
        F1 = inv3(g1)
        F2 = inv3(g2)
-       result(:,:,k,l) = (this%stress(S,F2) - this%stress(S,F1))/(2*h)
+       result(:,:,k,l) = (this%stress(S,F1) - this%stress(S,F2))/(2*h)
     end do; end do
   end function dstress_dg
 
