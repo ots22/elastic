@@ -204,15 +204,14 @@ program main
         call x_sweep
         call apply_BC
         call y_sweep
-        call plastic_src
      case (1)
         call y_sweep
         call apply_BC
         call x_sweep
-        call plastic_src
      end select
      call apply_BC
      call rescale_rhoF
+     call plastic_src
      if (div_constraint) then
         if (mod(it,div_constraint_step).eq.0) call divergence_constraint
      end if
