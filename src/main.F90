@@ -75,8 +75,8 @@ contains
     if (div_constraint_step.le.0) div_constraint=.false.
 
 !   handle equation of state, plasticity model, initial conditions, boundary conditions
-    select case (eos_name)
-    case ('Romenski')
+    select case (to_lower(eos_name))
+    case ('romenski')
        allocate(eos_romenski :: eq)
     case default
        call panic('unknown equation of state requested: ' // eos_name)
