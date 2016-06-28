@@ -134,6 +134,5 @@ contains
        ge = matmul(Fp,gtot)
        Fe = inv3(ge)
     end do
-!    call warn('reached maximum iterations in plastic_relax. Continuing.')
   end subroutine plastic_relax
 end module m_plastic
