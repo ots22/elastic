@@ -124,7 +124,7 @@ contains
        dzeta = -yield_f/df_dzeta_
 
        Fp_unscaled = Fp + dFpdot_dzeta_ * dzeta
-       Fp = det3(Fp_unscaled)**(-1.0/3.0) * Fp
+       Fp = det3(Fp_unscaled)**(-1.0/3.0) * Fp_unscaled
 
        sigma = sigma0
        do i=1,3; do j=1,3; do k=1,3; do l=1,3
