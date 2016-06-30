@@ -4,30 +4,28 @@ module m_state
   integer, parameter :: prim_rho=1, prim_v(3)=[2,3,4], prim_F(9)=[5,6,7,8,9,10,11,12,13], prim_S=14
   integer, parameter :: cons_rho=1, cons_mom(3)=[2,3,4], cons_rhoF(9)=[5,6,7,8,9,10,11,12,13], cons_rhoE=14
 contains
-  pure function Finger_G(F) result (G)
+  pure function Cauchy_Green_left(F) result (B)
     use m_matutil, only: inv3
     real, intent(in) :: F(3,3)
-    real G(3,3), F_inv(3,3)
-    F_inv = inv3(F)
-    G = matmul(F_inv, transpose(F_inv))
-  end function Finger_G
+    real B(3,3)
+    B = matmul(F, transpose(F))
+  end function Cauchy_Green_left
 
-  pure function Cauchy_c(F) result (c)
+  pure function Cauchy_Green_right(F) result (C)
     use m_matutil, only: inv3
     real, intent(in) :: F(3,3)
-    real c(3,3), F_inv(3,3)
-    F_inv = inv3(F)
-    c = matmul(transpose(F_inv), F_inv)
-  end function Cauchy_c
+    real C(3,3)
+    C = matmul(transpose(F), F)
+  end function Cauchy_Green_right
 
-  pure function dC_dF(q,p,F_inv)
+  pure function dCinv_dF(q,p,Finv)
     integer, intent(in) :: q, p
-    real, intent(in) :: F_inv(3,3)
-    real dC_dF(3,3), C(3,3)
+    real, intent(in) :: Finv(3,3)
+    real dCinv_dF(3,3), Cinv(3,3)
     integer i,j
-    C = matmul(transpose(F_inv), F_inv)
-    forall(i=1:3,j=1:3) dC_dF(i,j) = -C(i,q)*F_inv(j,p) - C(j,q)*F_inv(i,p)
-  end function dC_dF
+    Cinv = matmul(transpose(Finv), Finv)
+    forall(i=1:3,j=1:3) dCinv_dF(i,j) = -Cinv(i,q)*Finv(j,p) - Cinv(j,q)*Finv(i,p)
+  end function dCinv_dF
   
   pure function prim_get_rho(u) result(rho)
     real, intent(in) :: u(nq)

@@ -1,11 +1,14 @@
 ./bc.o ./m_bc.mod : ../../src/bc.f90 ./m_eos.mod ./m_configurable.mod 
 ./bc_offset_periodic.o ./m_bc_offset_periodic.mod : ../../src/bc_offset_periodic.f90 ./m_eos.mod ./m_error.mod ./m_state.mod ./m_bc.mod 
+./bc_periodic.o ./m_bc_periodic.mod : ../../src/bc_periodic.f90 ./m_eos.mod ./m_error.mod ./m_state.mod ./m_bc.mod 
+./bc_reflective.o ./m_bc_reflective.mod : ../../src/bc_reflective.f90 ./m_matutil.mod ./m_eos.mod ./m_error.mod ./m_state.mod ./m_bc.mod 
 ./bounded_newton.o ./m_bounded_newton.mod : ../../src/bounded_newton.f90 
 ./configurable.o ./m_configurable.mod : ../../src/configurable.f90 ./m_error.mod 
 ./domain.o ./m_domain.mod : ../../src/domain.f90 ./m_error.mod 
 ./eos.o ./m_eos.mod : ../../src/eos.f90 ./m_state.mod ./m_configurable.mod 
 ./eos_gp.o ./m_eos_gp.mod : ../../src/eos_gp.f90 ./m_config.mod ./m_bounded_newton.mod ./m_matutil.mod ./m_state.mod ./m_error.mod ./m_eos.mod 
-./eos_romenski.o ./m_eos_romenski.mod : ../../src/eos_romenski.f90 ./m_error.mod ./m_state.mod ./m_eos.mod 
+./eos_mooney_rivlin.o ./m_eos_mooney_rivlin.mod : ../../src/eos_mooney_rivlin.f90 ./m_error.mod ./m_state.mod ./m_eos.mod 
+./eos_romenski.o ./m_eos_romenski.mod : ../../src/eos_romenski.f90 ./m_error.mod ./m_matutil.mod ./m_state.mod ./m_eos.mod 
 ./eos_simple.o ./m_eos_simple.mod : ../../src/eos_simple.f90 ./m_eos.mod 
 ./error.o ./m_error.mod : ../../src/error.f90 
 ./feuler.o ./m_feuler.mod : ../../src/feuler.f90 ./m_error.mod 

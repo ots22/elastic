@@ -1,6 +1,7 @@
 module m_config
   use m_eos
   use m_eos_romenski
+  use m_eos_mooney_rivlin
   use m_ic
   use m_ic_RP
   use m_ic_gaussian
@@ -74,6 +75,8 @@ contains
     select case (eos_name)
     case ('Romenski')
        allocate(eos_romenski :: eq)
+    case ('Mooney-Rivlin')
+       allocate(eos_mooney_rivlin :: eq)
     case default
        call panic('unknown equation of state requested: ' // eos_name)
     end select
