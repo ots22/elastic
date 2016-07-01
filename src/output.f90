@@ -94,15 +94,15 @@ contains
     write (u,'(A,I7,I7,I3)') 'DIMENSIONS ', nx+1, ny+1, 1
 
     write (u,'(A,I7,1X,A)') 'X_COORDINATES', nx+1, 'FLOAT'
-    write (u,'(I7)') 0
+    write (u,'(E16.7E3)') (-nb-1)*dx
     do ix=1,nx
-       write (u,'(I7)') ix
+       write (u,'(E16.7E3)') (ix-nb-1)*dx
     end do
 
     write (u,'(A,I7,1X,A)') 'Y_COORDINATES', ny+1, 'FLOAT'
-    write (u,'(I7)') 0
+    write (u,'(E16.7E3)') (-nb-1)*dx
     do iy=1,ny
-       write (u,'(I7)') iy
+       write (u,'(E16.7E3)') (iy-nb-1)*dx
     end do
 
     write (u,'(A,I7,1X,A)') 'Z_COORDINATES', 1, 'FLOAT'
