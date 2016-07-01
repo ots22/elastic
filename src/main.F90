@@ -82,7 +82,7 @@ contains
     select case (to_lower(eos_name))
     case ('romenski')
        allocate(eos_romenski :: eq)
-    case ('Mooney-Rivlin')
+    case ('mooney-rivlin','mooney rivlin')
        allocate(eos_mooney_rivlin :: eq)
     case default
        call panic('unknown equation of state requested: ' // eos_name)
