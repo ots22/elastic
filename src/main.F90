@@ -4,9 +4,13 @@ module m_config
   use m_plastic
   use m_plastic_null
   use m_plastic_mises_huber
+  use m_eos_mooney_rivlin
   use m_ic
   use m_ic_RP
+  use m_ic_gaussian
   use m_bc
+  use m_bc_reflective
+  use m_bc_periodic
   use m_bc_offset_periodic
   integer, parameter :: MAX_NAME_LEN=100
   integer, parameter :: MAX_FILENAME_LEN=1000
@@ -78,6 +82,8 @@ contains
     select case (to_lower(eos_name))
     case ('romenski')
        allocate(eos_romenski :: eq)
+    case ('Mooney-Rivlin')
+       allocate(eos_mooney_rivlin :: eq)
     case default
        call panic('unknown equation of state requested: ' // eos_name)
     end select
@@ -96,6 +102,8 @@ contains
     select case (to_lower(ic_type))
     case ('rp','riemann','riemann problem')
        allocate(ic_RP :: initial_conditions)
+    case ('gaussian')
+       allocate(ic_gaussian :: initial_conditions)
     case default
        call panic('unknown initial conditions requested: ' // ic_type)
     end select
@@ -103,6 +111,10 @@ contains
     rewind(u)
 
     select case (to_lower(bc_type))
+    case ('reflective')
+       allocate(bc_reflective :: boundary_conditions)
+    case ('periodic')
+       allocate(bc_periodic :: boundary_conditions)
     case ('offset periodic', 'offset_periodic')
        allocate(bc_offset_periodic :: boundary_conditions)
     case default

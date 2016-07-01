@@ -15,83 +15,84 @@ module m_eos_romenski
   end type eos_romenski
 
 contains
-  function E(this, S, F) result(result)
-    use m_state, only: Cauchy_C
+  function E(this, S, F) result(e_internal)
+    use m_state, only: Cauchy_Green_left
+    use m_matutil, only: inv3
     class(eos_romenski) :: this
     real, intent(in) :: S, F(3,3)
-    real result
-!   `G' since this is how they were in the old python script, but
-!   actually Cauchy tensor, transpose(inv_F)*inv_F
-    real G(3,3)
-    G = Cauchy_c(F)
+    real e_internal
+    real Binv(3,3)
+    Binv = inv3(Cauchy_Green_left(F))
     associate (&
-         G11   => G(1,1),     &
-         G12   => G(1,2),     &
-         G13   => G(1,3),     &
-         G22   => G(2,2),     &
-         G23   => G(2,3),     &
-         G33   => G(3,3),     &
-         rho_0 => this%rho0,  &
-         K0    => this%K0,    &
-         B0    => this%B0,    &
-         alpha => this%alpha, &
-         beta  => this%beta,  &
-         gamma => this%gamma, &
-         cv    => this%cv,    &
-         T0    => this%T0)
-      include 'eos/romenskii_energy.inc'
+         Binv11 => Binv(1,1),     &
+         Binv12 => Binv(1,2),     &
+         Binv13 => Binv(1,3),     &
+         Binv22 => Binv(2,2),     &
+         Binv23 => Binv(2,3),     &
+         Binv33 => Binv(3,3),     &
+         rho0   => this%rho0,     &
+         K0     => this%K0,       &
+         B0     => this%B0,       &
+         alpha  => this%alpha,    &
+         beta   => this%beta,     &
+         gamma  => this%gamma,    &
+         cv     => this%cv,       &
+         T0     => this%T0)
+      include 'eos/romenski_energy.inc'
     end associate
   end function E
 
-  function S(this, E, F) result(result)
-    use m_state, only: Cauchy_C
+  function S(this, E, F) result(entropy)
+    use m_state, only: Cauchy_Green_left
+    use m_matutil, only: inv3
     class(eos_romenski) :: this
     real, intent(in) :: E, F(3,3)
-    real result
-    real G(3,3)
-    G = Cauchy_c(F)
+    real entropy
+    real Binv(3,3)
+    Binv = inv3(Cauchy_Green_left(F))
     associate (&
-         G11   => G(1,1),     &
-         G12   => G(1,2),     &
-         G13   => G(1,3),     &
-         G22   => G(2,2),     &
-         G23   => G(2,3),     &
-         G33   => G(3,3),     &
-         rho_0 => this%rho0,  &
-         K0    => this%K0,    &
-         B0    => this%B0,    &
-         alpha => this%alpha, &
-         beta  => this%beta,  &
-         gamma => this%gamma, &
-         cv    => this%cv,    &
-         T0    => this%T0)
-      include 'eos/romenskii_entropy.inc'
+         Binv11 => Binv(1,1),     &
+         Binv12 => Binv(1,2),     &
+         Binv13 => Binv(1,3),     &
+         Binv22 => Binv(2,2),     &
+         Binv23 => Binv(2,3),     &
+         Binv33 => Binv(3,3),     &
+         rho0   => this%rho0,     &
+         K0     => this%K0,       &
+         B0     => this%B0,       &
+         alpha  => this%alpha,    &
+         beta   => this%beta,     &
+         gamma  => this%gamma,    &
+         cv     => this%cv,       &
+         T0     => this%T0)
+      include 'eos/romenski_entropy.inc'
     end associate
   end function S
 
-  function stress(this, S, F) result(result)
-    use m_state, only: Cauchy_C
+  function stress(this, S, F)
+    use m_state, only: Cauchy_Green_left
+    use m_matutil, only: inv3
     class(eos_romenski) :: this
     real, intent(in) :: S, F(3,3)
-    real result(3,3)
-    real G(3,3)
-    G = Cauchy_c(F)
+    real stress(3,3)
+    real Binv(3,3)
+    Binv = inv3(Cauchy_Green_left(F))
     associate (&
-         G11   => G(1,1),     &
-         G12   => G(1,2),     &
-         G13   => G(1,3),     &
-         G22   => G(2,2),     &
-         G23   => G(2,3),     &
-         G33   => G(3,3),     &
-         rho_0 => this%rho0,  &
-         K0    => this%K0,    &
-         B0    => this%B0,    &
-         alpha => this%alpha, &
-         beta  => this%beta,  &
-         gamma => this%gamma, &
-         cv    => this%cv,    &
-         T0    => this%T0)
-      include 'eos/romenskii_stress.inc'
+         Binv11 => Binv(1,1),     &
+         Binv12 => Binv(1,2),     &
+         Binv13 => Binv(1,3),     &
+         Binv22 => Binv(2,2),     &
+         Binv23 => Binv(2,3),     &
+         Binv33 => Binv(3,3),     &
+         rho0   => this%rho0,     &
+         K0     => this%K0,       &
+         B0     => this%B0,       &
+         alpha  => this%alpha,    &
+         beta   => this%beta,     &
+         gamma  => this%gamma,    &
+         cv     => this%cv,       &
+         T0     => this%T0)
+      include 'eos/romenski_stress.inc'
     end associate
   end function stress
 
