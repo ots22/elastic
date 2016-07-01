@@ -134,6 +134,9 @@ contains
     call write_scalars_header('S')
     write (u,'(E16.7E3)') psol(prim_S,:,:)
 
+    call write_scalars_header('E')
+    write (u,'(E16.7E3)') sol(cons_rhoE,:,:)/sol(cons_rho,:,:)
+
 !   F written as many 'SCALARS' because 'TENSORS' is only for symmetric tensors
     call write_scalars_header('F11')
     write (u,'(E16.7E3)') psol(prim_F(1),:,:)
