@@ -66,29 +66,36 @@ contains
        end do
     end do
 
-    do ib=1,nb
-       do ix=1,nx
-!         ib and ib_right indexes a boundary cell (left or right), with
-!         ib_refl and ib_right_refl the cells these copy data from
-          ib_refl = 2*nb-ib+1
-          ib_right = ny+1-ib
-          ib_right_refl = ny+1-ib_refl
+! !   same again for the y direction
+!     do ib=1,nb
+!        do ix=1,nx
+! !         ib and ib_right indexes a boundary cell (left or right), with
+! !         ib_refl and ib_right_refl the cells these copy data from
+!           ib_refl = 2*nb-ib+1
+!           ib_right = ny+1-ib
+!           ib_right_refl = ny+1-ib_refl
           
-!         scalar components of the state are easy:
-          sol(cons_rho,ix,ib)        = sol(cons_rho,ix,ib_refl)
-          sol(cons_rho,ix,ib_right)  = sol(cons_rho,ix,ib_right_refl)
+! !         scalar components of the state are easy:
+!           sol(cons_rho,ix,ib)        = sol(cons_rho,ix,ib_refl)
+!           sol(cons_rho,ix,ib_right)  = sol(cons_rho,ix,ib_right_refl)
           
-          sol(cons_rhoE,ix,ib)       = sol(cons_rhoE,ix,ib_refl)
-          sol(cons_rhoE,ix,ib_right) = sol(cons_rhoE,ix,ib_right_refl)
+!           sol(cons_rhoE,ix,ib)       = sol(cons_rhoE,ix,ib_refl)
+!           sol(cons_rhoE,ix,ib_right) = sol(cons_rhoE,ix,ib_right_refl)
 
-!         the only vector component transforms as v'_{i} = Ry_{ij}*v_{j}
-          sol(cons_mom,ix,ib)        = matmul(Ry,sol(cons_mom,ix,ib_refl))
-          sol(cons_mom,ix,ib_right)  = matmul(Ry,sol(cons_mom,ix,ib_right_refl))
+! !         the only vector component transforms as v'_{i} = Ry_{ij}*v_{j}
+!           sol(cons_mom,ix,ib)        = matmul(Ry,sol(cons_mom,ix,ib_refl))
+!           sol(cons_mom,ix,ib_right)  = matmul(Ry,sol(cons_mom,ix,ib_right_refl))
           
-!         the tensor component transforms as F'_{ij} = Ry_{ik}*F_{kl}*Ry_{lj} (since Ry is self-inverse)
-          sol(cons_rhoF,ix,ib)       = [matmul(Ry,matmul(cons_get_rhoF(sol(:,ix,ib_refl)),Ry))]
-          sol(cons_rhoF,ix,ib_right) = [matmul(Ry,matmul(cons_get_rhoF(sol(:,ix,ib_right_refl)),Ry))]
-       end do
-    end do
+! !         the tensor component transforms as F'_{ij} = Ry_{ik}*F_{kl}*Ry_{lj} (since Ry is self-inverse)
+!           sol(cons_rhoF,ix,ib)       = [matmul(Ry,matmul(cons_get_rhoF(sol(:,ix,ib_refl)),Ry))]
+!           sol(cons_rhoF,ix,ib_right) = [matmul(Ry,matmul(cons_get_rhoF(sol(:,ix,ib_right_refl)),Ry))]
+!       end do
+!    end do
+ 
+    forall (ib=1:nb)
+       sol(:,:,ib) = sol(:,:,nb+1)
+       sol(:,:,ny-ib+1) = sol(:,:,ny-nb)
+    end forall
+
   end subroutine apply
 end module m_bc_reflective
