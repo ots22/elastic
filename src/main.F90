@@ -6,6 +6,7 @@ module m_config
   use m_plastic_mises_huber
   use m_eos_mooney_rivlin
   use m_ic
+  use m_ic_constant
   use m_ic_RP
   use m_ic_gaussian
   use m_bc
@@ -100,6 +101,8 @@ contains
     rewind(u)
 
     select case (to_lower(ic_type))
+    case ('constant')
+       allocate(ic_constant :: initial_conditions)
     case ('rp','riemann','riemann problem')
        allocate(ic_RP :: initial_conditions)
     case ('gaussian')
