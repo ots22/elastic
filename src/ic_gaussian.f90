@@ -21,12 +21,17 @@ contains
     class(ic_gaussian) :: this
     class(eos), intent(in) :: eq
     real, intent(out) :: u(:,:,:)
-    real omega, rho, rhoF(3,3), F(3,3), mom(3), rhoE, E0, E1, r
+    real omega, rho, rhoF(3,3), F(3,3), F0(3,3), mom(3), rhoE, E0, E1, r
     integer ix,iy
+    real kappa0, rhokappa
 
     ! just 1-d at the moment (all y slices set equally)
     
-    do ix=nb+1,nx-nb
+    F0 = identity(3)/1.1
+    kappa0 = 0.0
+    E0 = eq%E(0.0,F0,kappa0)
+
+    do ix=1,nx
        r = dx*(ix-nb-1) + 0.5*dx
        omega = 1.0/(this%stddev*sqrt(2*pi)) * exp(-r**2/(2*this%stddev**2))
        ! Miller-Collela elastic test:
@@ -44,24 +49,24 @@ contains
 
        !    u(:,ix,iy) = [rho, mom, rhoF, rhoE]
        ! end do
+       F = 0.0
+       F(1,1) = 1.0 / 1.1
+       F(2,2) = 1.0/((1.0 + 9.0*omega)*1.1)
+       F(3,3) = (1.0 + 9.0*omega)/1.1
+
+       rho = F_density(eq%rho0,F)
+       rhoF = rho*F
+       
+       mom = [0.0, 0.0, 0.0]
+       !         E1 = 10.0*E0
+
+       !         rhoE = rho*((1.0-omega)*E0 + omega*E1)
+       rhoE = rho*E0
+       
+       rhokappa = rho*kappa0
+
        do iy=1,ny
-          F = 0.0
-          F(1,1) = 1.0 / 1.1
-          F(2,2) = 1.0/((1.0 + 9.0*omega)*1.1)
-          F(3,3) = (1.0 + 9.0*omega)/1.1
-
-          rho = F_density(eq%rho0,F)
-          rhoF = rho*F
-
-          mom = [0.0, 1.0, 0.0]
-
-          E0 = eq%E(0.0,rhoF/rho)
-!         E1 = 10.0*E0
-
-!         rhoE = rho*((1.0-omega)*E0 + omega*E1)
-          rhoE = rho*E0
-
-          u(:,ix,iy) = [rho, mom, rhoF, rhoE]
+          u(:,ix,iy) = [rho, mom, rhoF, rhoE, rhokappa]
        end do
     end do
   end subroutine apply

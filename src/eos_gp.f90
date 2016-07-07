@@ -25,24 +25,24 @@ module m_eos_gp
   end type eos_gp
 
 contains
-  function E(this, S, F) result(result)
+  function E(this, S, F, kappa) result(result)
     use m_state, only: Cauchy_Green_left
     use m_matutil, only: matrix_to_voigt, inv3
     use m_error
     class(eos_gp) this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real result
     real Cinv_voigt(6)
     Cinv_voigt = matrix_to_voigt(inv3(Cauchy_Green_left(F)))
     result = this%energy_unit * (S + SparseGP_predict(this%gp, [Cinv_voigt, S], 0))
   end function E
 
-  function S(this, E, F)
+  function S(this, E, F, kappa)
     use m_bounded_newton
     use m_state, only: Cauchy_Green_left
     use m_matutil, only: matrix_to_voigt, inv3
     class(eos_gp) this
-    real, intent(in) :: E, F(3,3)
+    real, intent(in) :: E, F(3,3), kappa
     real S, bounds(2), input(7)
     integer err
     input(1:6) = matrix_to_voigt(inv3(Cauchy_Green_left(F)))
@@ -84,12 +84,12 @@ contains
     dE_dCinv = voigt_to_matrix(dE_dCinv_voigt)
   end function dE_dCinv
 
-  function stress(this, S, F)
+  function stress(this, S, F, kappa)
     use m_state, only: Cauchy_Green_left, dCinv_dF
     use m_matutil, only: inv3, det3
     real stress(3,3)
     class(eos_gp) this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real dEdCinv(3,3), dEdF_T(3,3), F_inv(3,3), dCinvdF(3,3)
     integer j,k
     dEdCinv = dE_dCinv(this, S, inv3(Cauchy_Green_left(F)))

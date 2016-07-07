@@ -14,25 +14,29 @@ contains
     real v(3), F(3,3), S
     real rho, mom(3), rhoF(3,3), rhoE
     real sigma(3,3)
-    real rho_fl, mom_fl(3), rhoF_fl(3,3), rhoE_fl
+    real rho_fl, mom_fl(3), rhoF_fl(3,3), rhoE_fl, rhokappa_fl
+    real kappa, rhokappa
 
     v = prim_get_v(ps)
     F = prim_get_F(ps)
     S = prim_get_S(ps)
+    kappa = prim_get_kappa(ps)
 
     rho = cons_get_rho(cs)
     mom = cons_get_mom(cs)
     rhoF = cons_get_rhoF(cs)
     rhoE = cons_get_rhoE(cs)
+    rhokappa = cons_get_rhokappa(cs)
 
-    sigma = eq%stress(S, F)
+    sigma = eq%stress(S, F, kappa)
 
     rho_fl = v(dirn) * rho
     mom_fl = v(dirn) * mom - sigma(:,dirn)
     rhoF_fl = v(dirn) * rhoF - (v.outer.rhoF(dirn,:))
     rhoE_fl = v(dirn) * rhoE - dot_product(v, sigma(:,dirn))
-
-    flux = [rho_fl, mom_fl, rhoF_fl, rhoE_fl]
+    rhokappa_fl = v(dirn) * rhokappa
+    
+    flux = [rho_fl, mom_fl, rhoF_fl, rhoE_fl, rhokappa_fl]
   end function flux
 
   function lax_friedrichs_flux(L, R, fl_L, fl_R, dx_dt) result(fl)

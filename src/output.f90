@@ -125,7 +125,9 @@ contains
 
     call write_scalars_header('dev_stress')
     do iy=1,ny; do ix=1,nx
-       write (u,'(E16.7E3)') norm2(dev3(eq%stress(prim_get_S(psol(:,ix,iy)),prim_get_F(psol(:,ix,iy)))))
+       write (u,'(E16.7E3)') norm2(dev3(eq%stress(prim_get_S(psol(:,ix,iy)), &
+            & prim_get_F(psol(:,ix,iy)), &
+            & prim_get_kappa(psol(:,ix,iy)))))
     end do; end do
 
     write (u,'(A)') 'VECTORS velocity FLOAT'
@@ -133,14 +135,29 @@ contains
 
     write (u,'(A)') 'TENSORS stress FLOAT'
     do iy=1,ny; do ix=1,nx
-    write (u,'(9E16.7E3)') eq%stress(prim_get_S(psol(:,ix,iy)),prim_get_F(psol(:,ix,iy)))
+       write (u,'(9E16.7E3)') eq%stress(prim_get_S(psol(:,ix,iy)), &
+            & prim_get_F(psol(:,ix,iy)), &
+            & prim_get_kappa(psol(:,ix,iy)))
     end do; end do
 
     call write_scalars_header('S')
     write (u,'(E16.7E3)') psol(prim_S,:,:)
 
-    call write_scalars_header('E')
+    call write_scalars_header('total_energy')
     write (u,'(E16.7E3)') sol(cons_rhoE,:,:)/sol(cons_rho,:,:)
+
+    call write_scalars_header('internal_energy')
+    write (u,'(E16.7E3)') (sol(cons_rhoE,:,:) - 0.5 * norm2(sol(cons_mom,:,:),1)**2/sol(cons_rho,:,:))/sol(cons_rho,:,:)
+
+    call write_scalars_header('kappa')
+    write (u,'(E16.7E3)') psol(prim_kappa,:,:)
+
+    call write_scalars_header('hardening')
+    do iy=1,ny; do ix=1,nx
+       write (u,'(E16.7E3)') eq%hardening(prim_get_S(psol(:,ix,iy)), &
+            & prim_get_F(psol(:,ix,iy)), &
+            & prim_get_kappa(psol(:,ix,iy)))
+    end do; end do
 
 !   F written as many 'SCALARS' because 'TENSORS' is only for symmetric tensors
     call write_scalars_header('F11')

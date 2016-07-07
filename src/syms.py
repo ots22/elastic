@@ -9,7 +9,8 @@ def list_to_symbol_dict(params,d):
 
 ##### energy, entropy and initial density
 
-E, s, rho0 = sympy.symbols('E, s, rho0')
+#E, s, rho0 = sympy.symbols('E, s, rho0')
+string_to_symbol_dict('E s rho0 kappa',globals())
 
 ##### F
 

@@ -15,11 +15,11 @@ module m_eos_romenski
   end type eos_romenski
 
 contains
-  function E(this, S, F) result(e_internal)
+  function E(this, S, F, kappa) result(e_internal)
     use m_state, only: Cauchy_Green_left
     use m_matutil, only: inv3
     class(eos_romenski) :: this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real e_internal
     real Binv(3,3)
     Binv = inv3(Cauchy_Green_left(F))
@@ -42,11 +42,11 @@ contains
     end associate
   end function E
 
-  function S(this, E, F) result(entropy)
+  function S(this, E, F, kappa) result(entropy)
     use m_state, only: Cauchy_Green_left
     use m_matutil, only: inv3
     class(eos_romenski) :: this
-    real, intent(in) :: E, F(3,3)
+    real, intent(in) :: E, F(3,3), kappa
     real entropy
     real Binv(3,3)
     Binv = inv3(Cauchy_Green_left(F))
@@ -69,11 +69,11 @@ contains
     end associate
   end function S
 
-  function stress(this, S, F)
+  function stress(this, S, F, kappa)
     use m_state, only: Cauchy_Green_left
     use m_matutil, only: inv3
     class(eos_romenski) :: this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real stress(3,3)
     real Binv(3,3)
     Binv = inv3(Cauchy_Green_left(F))

@@ -56,6 +56,9 @@ contains
           sol(cons_rhoE,ib,iy)       = sol(cons_rhoE,ib_refl,iy)
           sol(cons_rhoE,ib_right,iy) = sol(cons_rhoE,ib_right_refl,iy)
 
+          sol(cons_rhokappa,ib,iy)       = sol(cons_rhokappa,ib_refl,iy)
+          sol(cons_rhokappa,ib_right,iy) = sol(cons_rhokappa,ib_right_refl,iy)
+
 !         the only vector component transforms as v'_{i} = Rx_{ij}*v_{j}
           sol(cons_mom,ib,iy)        = matmul(Rx,sol(cons_mom,ib_refl,iy))
           sol(cons_mom,ib_right,iy)  = matmul(Rx,sol(cons_mom,ib_right_refl,iy))

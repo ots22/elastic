@@ -1,8 +1,8 @@
 module m_state
-  integer, parameter :: nq=14
+  integer, parameter :: nq=15
 
-  integer, parameter :: prim_rho=1, prim_v(3)=[2,3,4], prim_F(9)=[5,6,7,8,9,10,11,12,13], prim_S=14
-  integer, parameter :: cons_rho=1, cons_mom(3)=[2,3,4], cons_rhoF(9)=[5,6,7,8,9,10,11,12,13], cons_rhoE=14
+  integer, parameter :: prim_rho=1, prim_v(3)=[2,3,4], prim_F(9)=[5,6,7,8,9,10,11,12,13], prim_S=14, prim_kappa=15
+  integer, parameter :: cons_rho=1, cons_mom(3)=[2,3,4], cons_rhoF(9)=[5,6,7,8,9,10,11,12,13], cons_rhoE=14, cons_rhokappa=15
 contains
   pure function Cauchy_Green_left(F) result (B)
     use m_matutil, only: inv3
@@ -51,6 +51,12 @@ contains
     S = u(prim_S)
   end function prim_get_S
   
+  pure function prim_get_kappa(u) result(kappa)
+    real, intent(in) :: u(nq)
+    real kappa
+    kappa = u(prim_kappa)
+  end function prim_get_kappa
+
   pure function cons_get_rho(u) result(rho)
     real, intent(in) :: u(nq)
     real rho
@@ -74,6 +80,12 @@ contains
     real rhoE
     rhoE = u(cons_rhoE)
   end function cons_get_rhoE
+
+  pure function cons_get_rhokappa(u) result(rhokappa)
+    real, intent(in) :: u(nq)
+    real rhokappa
+    rhokappa = u(cons_rhokappa)
+  end function cons_get_rhokappa
 
   pure function rhoF_density(rho0, rhoF) result(density)
     use m_matutil, only: det3

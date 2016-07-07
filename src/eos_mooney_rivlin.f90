@@ -9,18 +9,20 @@ module m_eos_mooney_rivlin
      procedure E
      procedure S
      procedure stress
-     procedure init_from_config   
+     procedure hardening
+     procedure dhardening_dkappa
+     procedure dstress_dkappa_E
+     procedure init_from_config
   end type eos_mooney_rivlin
 
 contains
-    function E(this, S, F) result(e_internal)
+    function E(this, S, F, kappa) result(e_internal)
     use m_state, only: Cauchy_Green_right
     class(eos_mooney_rivlin) :: this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real e_internal
     real C(3,3)
     !! change this to work-hardening parameter when eos supports it
-    real, parameter :: kappa = 0 
     C = Cauchy_Green_right(F)
     associate (&
          C11 => C(1,1),  &
@@ -40,13 +42,12 @@ contains
     end associate
   end function E
 
-  function S(this, E, F) result(entropy)
+  function S(this, E, F, kappa) result(entropy)
     use m_state, only: Cauchy_Green_right
     class(eos_mooney_rivlin) :: this
-    real, intent(in) :: E, F(3,3)
+    real, intent(in) :: E, F(3,3), kappa
     real entropy
     real C(3,3)
-    real, parameter :: kappa = 0 
     C = Cauchy_Green_right(F)
     associate (&
          C11 => C(1,1),  &
@@ -66,13 +67,12 @@ contains
     end associate
   end function S
 
-  function stress(this, S, F)
+  function stress(this, S, F, kappa)
     use m_state, only: Cauchy_Green_right
     class(eos_mooney_rivlin) :: this
-    real, intent(in) :: S, F(3,3)
+    real, intent(in) :: S, F(3,3), kappa
     real stress(3,3)
     real C(3,3)
-    real, parameter :: kappa = 0 
     C = Cauchy_Green_right(F)
     associate (&
          C11 => C(1,1),  &
@@ -100,6 +100,56 @@ contains
       include 'eos/mooney_rivlin_stress.inc'
     end associate
   end function stress
+
+! \rho * \partial E/\partial kappa
+  function hardening(this, S, F, kappa)
+    class(eos_mooney_rivlin) this
+    real, intent(in) :: S, F(3,3), kappa
+    real hardening
+    hardening = this%theta_0 * (1 - exp(-this%theta_1*kappa))
+  end function hardening
+
+  function dhardening_dkappa(this, S, F, kappa)
+    class(eos_mooney_rivlin) this
+    real, intent(in) :: S, F(3,3), kappa
+    real dhardening_dkappa
+    dhardening_dkappa = this%theta_0 * this%theta_1 * exp(-this%theta_1*kappa)
+  end function dhardening_dkappa
+
+  function dstress_dkappa_E(this, S, F, kappa)
+    use m_state, only: Cauchy_Green_right
+    class(eos_mooney_rivlin) :: this
+    real, intent(in) :: S, F(3,3), kappa
+    real dstress_dkappa_E(3,3), E
+    real C(3,3)
+    C = Cauchy_Green_right(F)
+    E = this%E(S,F,kappa)
+    associate (&
+         C11 => C(1,1),  &
+         C12 => C(1,2),  &
+         C13 => C(1,3),  &
+         C22 => C(2,2),  &
+         C23 => C(2,3),  &
+         C33 => C(3,3),  &
+         F11 => F(1,1),  &
+         F12 => F(1,2),  &
+         F13 => F(1,3),  &
+         F21 => F(2,1),  &
+         F22 => F(2,2),  &
+         F23 => F(2,3),  &
+         F31 => F(3,1),  &
+         F32 => F(3,2),  &
+         F33 => F(3,3),  &
+         rho0   => this%rho0,     &
+         lambda_0 => this%lambda_0, &
+         lambda_s => this%lambda_s, &
+         mu_0 => this%mu_0, &
+         mu_s => this%mu_s, &
+         theta_0 => this%theta_0, &
+         theta_1 => this%theta_1)
+      include 'eos/mooney_rivlin_dstress_dkappa_e.inc'
+    end associate
+  end function dstress_dkappa_E
 
   subroutine init_from_config(this,u)
     use m_error

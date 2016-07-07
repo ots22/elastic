@@ -19,7 +19,13 @@ def eos_to_f90(file_prefix, internal_energy, entropy=None):
     stress += 2 * (rho0 / sqrt(I3(c))) * F * diff_by_matrix(internal_energy, c) * F
 ###  this one isn't correct I think:
 ###    stress += -2 * rho0 * sqrt(I3(Cinv)) * F * diff_by_matrix(internal_energy, Cinv) * F
+
+    stress_e = stress.subs(s,entropy_subs)
+    dstress_dkappa_e = diff_of_matrix(stress_e, kappa)
+
+    dstress_dkappa_e = dstress_dkappa_e.subs(symmetric_pairs)
     stress = stress.subs(symmetric_pairs)
+    stress_e = stress_e.subs(symmetric_pairs)
 
     with open(file_prefix + '_energy.inc', 'w') as f:
         f.write(printing.fcode(internal_energy_subs, assign_to='e_internal', source_format='free'))
@@ -31,4 +37,16 @@ def eos_to_f90(file_prefix, internal_energy, entropy=None):
         for i in range(1,4):
             for j in range(1,4):
                 f.write(printing.fcode(stress[i-1,j-1], assign_to="stress(%d,%d)" % (i,j), source_format='free'))
+                f.write("\n\n")
+
+    with open(file_prefix + '_stress_e.inc', 'w') as f:
+        for i in range(1,4):
+            for j in range(1,4):
+                f.write(printing.fcode(stress_e[i-1,j-1], assign_to="stress_e(%d,%d)" % (i,j), source_format='free'))
+                f.write("\n\n")
+                
+    with open(file_prefix + '_dstress_dkappa_e.inc','w') as f:
+        for i in range(1,4):
+            for j in range(1,4):
+                f.write(printing.fcode(dstress_dkappa_e[i-1,j-1], assign_to="dstress_dkappa_e(%d,%d)" % (i,j), source_format='free'))
                 f.write("\n\n")

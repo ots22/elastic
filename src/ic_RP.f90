@@ -54,8 +54,8 @@ contains
 !   rotate everything: original 1d test problem, use identity
     R = rot_z(a)
 
-    left_prim_state  = [rho_left, matmul(R,v_left),  matmul(R,F_left),  S_left]
-    right_prim_state = [rho_right, matmul(R,v_right), matmul(R,F_right), S_right]
+    left_prim_state  = [rho_left, matmul(R,v_left),  matmul(R,F_left),  S_left, 0.0]
+    right_prim_state = [rho_right, matmul(R,v_right), matmul(R,F_right), S_right, 0.0]
 
     left_cons_state  = prim_to_cons(eq,left_prim_state)
     right_cons_state = prim_to_cons(eq,right_prim_state)

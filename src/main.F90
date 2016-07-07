@@ -316,13 +316,14 @@ contains
     do ix=1,nx
        do iy=1,ny
           F = reshape(solp(prim_F,ix,iy),[3,3])
-          call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F)
+          call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F, solp(prim_kappa,ix,iy))
           ! prim_F of solp now stores the relaxed deformation gradient
           ! (the prim_S component is unchanged)
           solp(prim_F,ix,iy) = reshape(F,[9])
           sol(:,ix,iy) = prim_to_cons(eq,solp(:,ix,iy))
        end do
     end do
+    call store_prim_solution
   end subroutine plastic_src
 
   subroutine apply_IC

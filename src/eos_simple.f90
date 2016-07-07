@@ -11,24 +11,24 @@ module m_eos_simple
   end type eos_simple
   
 contains
-  function E(this, S, F)
+  function E(this, S, F, kappa)
     class(eos_simple) :: this
-    real :: E, S, F(3,3)
-    intent(in) :: S, F
+    real :: E, S, F(3,3), kappa
+    intent(in) :: S, F, kappa
     E = 0
   end function E
 
-  function S(this, E, F)
+  function S(this, E, F, kappa)
     class(eos_simple) :: this
-    real :: S, E, F(3,3)
-    intent(in) :: E, F
+    real :: S, E, F(3,3), kappa
+    intent(in) :: E, F, kappa
     S = 0
   end function S
 
-  function stress(this, S, F)
+  function stress(this, S, F, kappa)
     class(eos_simple) :: this
-    real :: stress(3,3), S, F(3,3)
-    intent(in) :: S, F
+    real :: stress(3,3), S, F(3,3), kappa
+    intent(in) :: S, F, kappa
     stress =  0
   end function stress
 end module m_eos_simple

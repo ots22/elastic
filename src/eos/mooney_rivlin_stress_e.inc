@@ -1,0 +1,3285 @@
+stress_e(1,1) = F11*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F21*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F31*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(1,2) = F12*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F22*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F32*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(1,3) = F13*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F23*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F13*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F33*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F12*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F13*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(2,1) = F11*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F21*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F31*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(2,2) = F12*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F22*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F32*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(2,3) = F13*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F23*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F23*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F33*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F22*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F23*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(3,1) = F11*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F21*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F31*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(3,2) = F12*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F22*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F32*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+
+stress_e(3,3) = F13*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0* &
+      theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) &
+      - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa &
+      *theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa* &
+      theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22)) &
+      **2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0* &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33 &
+      *mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
+      1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C22*C33 - 1.0d0/2.0d0*C23**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C22*C33 - C23 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F23*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) &
+      + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa &
+      *theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C12*C33 + (1.0d0/2.0d0)*C13*C23)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C12*C33 + C13*C23)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C33 - &
+      1.0d0/2.0d0*C13**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C33 - 1.0d0/2.0d0*C13**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C33 - C13 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22) + 2*F33*rho0*(theta_0*(kappa + exp(-kappa* &
+      theta_1)/theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1* &
+      exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/ &
+      2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11 &
+      *C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22* &
+      C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - ( &
+      0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - &
+      C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22)) + F33*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1) &
+      /theta_1)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*((1.0d0/2.0d0)* &
+      C12*C23 - 1.0d0/2.0d0*C13*C22)*log(sqrt(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C12*C23 - C13*C22)/(C11*C22 &
+      *C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F32*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/ &
+      theta_1)*(-1.0d0/2.0d0*C11*C23 + (1.0d0/2.0d0)*C12*C13)/sqrt(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + &
+      2*(0.5d0*lambda_0 + 0.5d0*lambda_s*(-C11*mu_0*theta_1*exp(kappa* &
+      theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1 &
+      *exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0* &
+      kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0* &
+      theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-1.0d0/2.0d0* &
+      C11*C23 + (1.0d0/2.0d0)*C12*C13)*log(sqrt(C11*C22*C33 - C11*C23** &
+      2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))/(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) - (0.5d0* &
+      mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp(kappa*theta_1) - C22* &
+      mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0*theta_1*exp(kappa* &
+      theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - 2.0d0*kappa* &
+      theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2* &
+      C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0*theta_1* &
+      exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1*exp(kappa* &
+      theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12* &
+      C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp(-kappa* &
+      theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + lambda_s*log( &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - &
+      C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 &
+      + 2.0d0*C12*C13*C23 - C13**2*C22))))*(-C11*C23 + C12*C13)/(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/ &
+      sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22) + 2*F33*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1 &
+      *exp(kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33* &
+      mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa* &
+      theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23 &
+      **2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1 &
+      ) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + &
+      mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2* &
+      C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33* &
+      mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11* &
+      C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))) + theta_0 &
+      *(kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C11*C22 - &
+      1.0d0/2.0d0*C12**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
+      (-C11*mu_0*theta_1*exp(kappa*theta_1) - C22*mu_0*theta_1*exp( &
+      kappa*theta_1) - C33*mu_0*theta_1*exp(kappa*theta_1) + 2.0d0*E* &
+      theta_1*exp(kappa*theta_1) - 2.0d0*kappa*theta_0*theta_1*sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)* &
+      exp(kappa*theta_1) - lambda_0*theta_1*exp(kappa*theta_1)*log(sqrt &
+      (C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13 &
+      **2*C22))**2 + mu_0*theta_1*exp(kappa*theta_1)*log(C11*C22*C33 - &
+      C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0 &
+      *theta_0*sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))*exp(-kappa*theta_1)/(theta_1*(C11*mu_s + C22* &
+      mu_s + C33*mu_s + lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11* &
+      C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))))*((1.0d0/2.0d0)*C11*C22 - 1.0d0/2.0d0*C12**2)*log(sqrt(C11 &
+      *C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2* &
+      C22))/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - &
+      C13**2*C22) - (0.5d0*mu_0 + 0.5d0*mu_s*(-C11*mu_0*theta_1*exp( &
+      kappa*theta_1) - C22*mu_0*theta_1*exp(kappa*theta_1) - C33*mu_0* &
+      theta_1*exp(kappa*theta_1) + 2.0d0*E*theta_1*exp(kappa*theta_1) - &
+      2.0d0*kappa*theta_0*theta_1*sqrt(C11*C22*C33 - C11*C23**2 - C12** &
+      2*C33 + 2*C12*C13*C23 - C13**2*C22)*exp(kappa*theta_1) - lambda_0 &
+      *theta_1*exp(kappa*theta_1)*log(sqrt(C11*C22*C33 - C11*C23**2 - &
+      C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))**2 + mu_0*theta_1* &
+      exp(kappa*theta_1)*log(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
+      2.0d0*C12*C13*C23 - C13**2*C22) - 2.0d0*theta_0*sqrt(C11*C22*C33 &
+      - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))*exp( &
+      -kappa*theta_1)/(theta_1*(C11*mu_s + C22*mu_s + C33*mu_s + &
+      lambda_s*log(sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2.0d0* &
+      C12*C13*C23 - C13**2*C22))**2 - mu_s*log(C11*C22*C33 - C11*C23**2 &
+      - C12**2*C33 + 2.0d0*C12*C13*C23 - C13**2*C22))))*(C11*C22 - C12 &
+      **2)/(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13 &
+      **2*C22))/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13* &
+      C23 - C13**2*C22))
+

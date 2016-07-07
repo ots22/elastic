@@ -10,42 +10,73 @@ module m_eos
      procedure(E), deferred :: E
      procedure(S), deferred :: S
      procedure(stress), deferred :: stress
-     procedure dstress_dg
+     procedure stress_E
+     procedure hardening
+     procedure dhardening_dkappa
+     procedure dstress_dg_E
+     procedure dstress_dkappa_E
   end type eos
   
   abstract interface
-     function E(this, S, F)
+     function E(this, S, F, kappa)
        import eos
-       intent(in) S, F
+       intent(in) S, F, kappa
        class(eos) this
-       real E, S, F(3,3)
+       real E, S, F(3,3), kappa
      end function E
 
-     function S(this, E, F)
+     function S(this, E, F, kappa)
        import eos
-       intent(in) E, F
+       intent(in) E, F, kappa
        class(eos) this
-       real S, E, F(3,3)
+       real S, E, F(3,3), kappa
      end function S
 
-     function stress(this, S, F)
+     function stress(this, S, F, kappa)
        import eos
-       intent(in) S, F
+       intent(in) S, F, kappa
        class(eos) this
-       real stress(3,3), S, F(3,3)
+       real stress(3,3), S, F(3,3), kappa
      end function stress
   end interface
 
 contains
+  function stress_E(this, E, F, kappa)
+    intent(in) E, F, kappa
+    class(eos) this
+    real stress_E(3,3), S, F(3,3), kappa, E
+    S = this%S(E,F,kappa)
+    stress_E = this%stress(S,F,kappa)
+  end function stress_E
+  
+  function hardening(this, S, F, kappa)
+    use m_error
+    class(eos) this
+    real, intent(in) :: S, F(3,3), kappa
+    real hardening
+    hardening = 0.0
+    call warn("hardening unimplemented, assuming 0.0")
+  end function hardening
+
+  function dhardening_dkappa(this, S, F, kappa)
+    use m_error
+    class(eos) this
+    real, intent(in) :: S, F(3,3), kappa
+    real dhardening_dkappa
+    dhardening_dkappa = 0.0
+    call warn("dhardening_dkappa unimplemented, assuming 0.0")
+  end function dhardening_dkappa
+
   ! finite differences for now: implement something in the python script later
-  function dstress_dg(this, S, F) result(result)
+  function dstress_dg_E(this, S, F, kappa) result(result)
     use m_matutil, only: inv3
     class(eos) :: this
-    real, intent(in) :: S, F(3,3)
-    real result(3,3,3,3), g(3,3), g1(3,3), g2(3,3), F1(3,3), F2(3,3)
-    real, parameter :: h=1.0E-6
+    real, intent(in) :: S, F(3,3), kappa
+    real result(3,3,3,3), g(3,3), g1(3,3), g2(3,3), F1(3,3), F2(3,3), E
+    real, parameter :: h=1.0E-4
     integer k,l ! loop counters
     g = inv3(F)
+    E = this%E(S,F,kappa)
     do k=1,3; do l=1,3
        g1 = g
        g2 = g
@@ -53,9 +84,18 @@ contains
        g2(k,l) = g(k,l) - h
        F1 = inv3(g1)
        F2 = inv3(g2)
-       result(:,:,k,l) = (this%stress(S,F1) - this%stress(S,F2))/(2*h)
+       result(:,:,k,l) = (this%stress_E(E,F1,kappa) - this%stress_E(E,F2,kappa))/(2*h)
     end do; end do
-  end function dstress_dg
+  end function dstress_dg_E
+
+  function dstress_dkappa_E(this, S, F, kappa)
+    use m_error
+    class(eos) :: this
+    real, intent(in) :: S, F(3,3), kappa
+    real dstress_dkappa_E(3,3)
+    dstress_dkappa_E = 0.0
+    call warn("dstress_dkappa_E unimplemented, assuming 0.0")
+  end function dstress_dkappa_E
 
 ! convert a state vector c of conserved variables to a vector p of
 ! primitive variables
@@ -65,7 +105,7 @@ contains
     class(eos) eq
     real, dimension(nq) :: c, p
     real spfc_vol
-    real rho, v(3), F(3,3), E, S
+    real rho, v(3), F(3,3), E, S, kappa
 
     spfc_vol = 1/rhoF_density(eq%rho0, cons_get_rhoF(c))
 
@@ -73,9 +113,10 @@ contains
     v = spfc_vol * cons_get_mom(c)
     F = spfc_vol * cons_get_rhoF(c)
     E = spfc_vol * cons_get_rhoE(c) - 0.5*dot_product(v,v)
-    S = eq%S(E, F)
+    kappa = spfc_vol * cons_get_rhokappa(c)
+    S = eq%S(E, F, kappa)
 
-    p = [rho, v, F, S]
+    p = [rho, v, F, S, kappa]
   end function cons_to_prim
 
   function prim_to_cons(eq, p) result(c)
@@ -84,20 +125,22 @@ contains
     class(eos) eq
     real, dimension(nq) :: p, c
     real density 
-    real v(3), F(3,3), S 
-    real rho, mom(3), rhoF(3,3), rhoE
+    real v(3), F(3,3), S, kappa
+    real rho, mom(3), rhoF(3,3), rhoE, rhokappa
     
     rho = prim_get_rho(p)
     v = prim_get_v(p)
     F = prim_get_F(p)
     S = prim_get_S(p)
+    kappa = prim_get_kappa(p)
 
     density = F_density(eq%rho0, F)
 
     mom  = density * v
     rhoF = density * F
-    rhoE = density * (eq%E(S, F) + 0.5*dot_product(v,v))
+    rhoE = density * (eq%E(S, F, kappa) + 0.5*dot_product(v,v))
+    rhokappa = density * kappa
 
-    c = [rho, mom, rhoF, rhoE]
+    c = [rho, mom, rhoF, rhoE, rhokappa]
   end function prim_to_cons
 end module m_eos
