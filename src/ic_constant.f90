@@ -5,7 +5,7 @@ module m_ic_constant
   
   private
   type, public, extends(ic) :: ic_constant
-     real v(3), F(3,3), S
+     real v(3), F(3,3), S, kappa
    contains
      procedure apply
      procedure init_from_config
@@ -31,7 +31,7 @@ contains
     v = this%v
     F = this%F
     S = this%S
-    kappa = 0.0
+    kappa = this%kappa
 
     call assert(size(u,1).eq.nq, 'size of first dimension of u in &
     &ic_constant%apply must be nq')
@@ -49,17 +49,19 @@ contains
     use m_matutil, only: identity
     class(ic_constant) this
     integer, intent(in) :: u ! unit number
-    real v(3), F(3,3), S
-    namelist/ic_constant/v,F,S
+    real v(3), F(3,3), S, kappa
+    namelist/ic_constant/v,F,S,kappa
 
     F = identity(3)
     v = 0
     S = 0
-    
+    kappa = 0
+
     read (u,nml=ic_constant)
 
     this%v = v
     this%F = F
     this%S = S
+    this%kappa = kappa
   end subroutine init_from_config
 end module m_ic_constant

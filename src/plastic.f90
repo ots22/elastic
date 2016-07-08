@@ -59,11 +59,13 @@ contains
   ! otherwise, return the state unchanged.  Fe is the trial state.
   ! Add parameters for accumulating the change in plastic deformation
   ! and an array of hardening parameters etc.
-  subroutine plastic_relax(eq, plmodel, S, Fe, kappa)
+  subroutine plastic_relax(eq, plmodel, S, Fe, kappa, debug_output_p)
     use m_state
     use m_eos
     use m_matutil, only: identity, inv3, det3
     use m_error, only: warn
+
+    logical debug_output_p
 
     ! elastic and plastic models
     class(eos), intent(in) :: eq
@@ -106,17 +108,16 @@ contains
     Ftot = Fe
     gtot = ge
     
-    do iiter=1,maxiter
-       kappa = 0.0
+    if (debug_output_p) print *, sigma0
 
+    do iiter=1,maxiter
        ! Fp can be assumed to be identity at the start
 
-!       hardening = eq%hardening(S,Fe,kappa)
-       hardening = 0.0
+       hardening = eq%hardening(S,Fe,kappa)
        yield_f = plmodel%yield_f(sigma, hardening)
 
        if (yield_f.le.eps) then
-!          print *, yield_f, iiter
+          if (debug_output_p) print *, "final relaxed state:", Fe
           return
        end if
 
@@ -147,28 +148,36 @@ contains
           do k=1,3; do l=1,3
              df_dzeta_ = df_dzeta_ + df_dsigma_(i,j) * dsigma_dFp_(i,j,k,l) * dFpdot_dzeta_(k,l)
           end do; end do
-!          df_dzeta_ = df_dzeta_ + df_dsigma_(i,j) * dsigma_dkappa_(i,j) * dkappadot_dzeta_
+          df_dzeta_ = df_dzeta_ + df_dsigma_(i,j) * dsigma_dkappa_(i,j) * dkappadot_dzeta_
        end do; end do
-!      df_dzeta_ = df_dzeta_ + df_dhardening_ * dhardening_dkappa_ * dkappadot_dzeta_
+       df_dzeta_ = df_dzeta_ + df_dhardening_ * dhardening_dkappa_ * dkappadot_dzeta_
 
-       dzeta = -0.001 *yield_f/df_dzeta_
+       dzeta = -yield_f/df_dzeta_
 
+       if (debug_output_p) then
+          write (10,*) iiter, dzeta
+          write (11,*) iiter, dFpdot_dzeta_ * dzeta
+          write (12,*) iiter, sigma
+          write (13,*) iiter, dsigma_dkappa_
+          write (14,*) iiter, dkappadot_dzeta_
+       end if
+       
        Fp_unscaled = Fp + dFpdot_dzeta_ * dzeta
        Fp = det3(Fp_unscaled)**(-1.0/3.0) * Fp_unscaled
 
-!      kappa = kappa + dkappadot_dzeta_ * dzeta
+       kappa = kappa + dkappadot_dzeta_ * dzeta
 
        sigma = sigma0
        do i=1,3; do j=1,3; 
           do k=1,3; do l=1,3
              sigma(i,j) = sigma(i,j) + dsigma_dFp_(i,j,k,l) * (Fp(k,l) - id3(k,l))
           end do; end do;
- !        sigma(i,j) = sigma(i,j) + dsigma_dkappa_(i,j) * (kappa - kappa0)
+          sigma(i,j) = sigma(i,j) + dsigma_dkappa_(i,j) * (kappa - kappa0)
        end do; end do
 
        ge = matmul(Fp,gtot)
        Fe = inv3(ge)
-       
+
 !      print *, "plastic solve: ", iiter, dzeta, dFpdot_dzeta_(1,1), dFpdot_dzeta_(2,2), dFpdot_dzeta_(3,3), dsigma_dFp_(1,1,1,1)
 
     end do
@@ -177,6 +186,5 @@ contains
     ! print *, "sigma start: ", sigma0
     ! print *, "Fe end:   ", Fe
     ! print *, "sigma end:   ", sigma
-
   end subroutine plastic_relax
 end module m_plastic

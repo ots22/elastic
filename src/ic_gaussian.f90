@@ -33,7 +33,7 @@ contains
 
     do ix=1,nx
        r = dx*(ix-nb-1) + 0.5*dx
-       omega = 1.0/(this%stddev*sqrt(2*pi)) * exp(-r**2/(2*this%stddev**2))
+       omega = 1.0/(this%stddev*sqrt(2*pi)) * exp(-(r-20.0)**2/(2*this%stddev**2))
        ! Miller-Collela elastic test:
        ! do iy=1,ny
        !    F = identity(3) / 1.1

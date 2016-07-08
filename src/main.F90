@@ -75,7 +75,7 @@ contains
 
 !   sanity checks on configuration
     call assert(max_wave_speed.gt.0, "max_wave_speed must be set >0")
-    if (tmax.le.0) call warn("warning: tmax set to <=0")
+    if (tmax.le.0) call warn("tmax set to <=0")
     call assert(outstep.gt.0, "outstep must be positive")
     if (div_constraint_step.le.0) div_constraint=.false.
 
@@ -224,9 +224,9 @@ program main
         call apply_BC
         call x_sweep
      end select
+     call plastic_src
      call apply_BC
      call rescale_rhoF
-     call plastic_src
      if (div_constraint) then
         if (mod(it,div_constraint_step).eq.0) call divergence_constraint
      end if
@@ -310,17 +310,23 @@ contains
 
   ! loop over each cell, relax each one to the yield surface
   subroutine plastic_src
-    real F(3,3), rhoF(3,3)
+    real F(3,3), rhoF(3,3), rho
     integer ix,iy
     call store_prim_solution
     do ix=1,nx
        do iy=1,ny
-          F = reshape(solp(prim_F,ix,iy),[3,3])
-          call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F, solp(prim_kappa,ix,iy))
-          ! prim_F of solp now stores the relaxed deformation gradient
-          ! (the prim_S component is unchanged)
-          solp(prim_F,ix,iy) = reshape(F,[9])
-          sol(:,ix,iy) = prim_to_cons(eq,solp(:,ix,iy))
+          F = prim_get_F(solp(:,ix,iy))
+          call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F, solp(prim_kappa,ix,iy),.false.)
+
+          !!!! prim_F of solp now stores the relaxed deformation gradient
+          !!!! (the prim_S component is unchanged)
+          !!!!!solp(prim_F,ix,iy) = reshape(F,[9])
+          ! prim_to_cons would be incorrect here, since we want to fix
+          ! internal energy, and solve for entropy.  The solution is
+          ! actually cons_to_prim, on a state we construct as follows:
+          rho = F_density(eq%rho0,F)
+          sol(cons_rhoF,ix,iy) = rho*reshape(F,[9])
+          sol(cons_rhokappa,ix,iy) = rho*solp(prim_kappa,ix,iy)
        end do
     end do
     call store_prim_solution

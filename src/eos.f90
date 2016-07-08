@@ -72,19 +72,19 @@ contains
     use m_matutil, only: inv3
     class(eos) :: this
     real, intent(in) :: S, F(3,3), kappa
-    real result(3,3,3,3), g(3,3), g1(3,3), g2(3,3), F1(3,3), F2(3,3), E
-    real, parameter :: h=1.0E-4
+    real result(3,3,3,3), g(3,3), gplus(3,3), gminus(3,3), Fplus(3,3), Fminus(3,3), E
+    real, parameter :: h=1.0E-7
     integer k,l ! loop counters
     g = inv3(F)
     E = this%E(S,F,kappa)
     do k=1,3; do l=1,3
-       g1 = g
-       g2 = g
-       g1(k,l) = g(k,l) + h
-       g2(k,l) = g(k,l) - h
-       F1 = inv3(g1)
-       F2 = inv3(g2)
-       result(:,:,k,l) = (this%stress_E(E,F1,kappa) - this%stress_E(E,F2,kappa))/(2*h)
+       gplus  = g
+       gminus = g
+       gplus(k,l)  = g(k,l) + h
+       gminus(k,l) = g(k,l) - h
+       Fplus  = inv3(gplus)
+       Fminus = inv3(gminus)
+       result(:,:,k,l) = (this%stress_E(E,Fplus,kappa) - this%stress_E(E,Fminus,kappa))/(2*h)
     end do; end do
   end function dstress_dg_E
 
@@ -93,8 +93,10 @@ contains
     class(eos) :: this
     real, intent(in) :: S, F(3,3), kappa
     real dstress_dkappa_E(3,3)
-    dstress_dkappa_E = 0.0
-    call warn("dstress_dkappa_E unimplemented, assuming 0.0")
+    real E
+    real, parameter :: h=1.0E-7
+    E = this%E(S,F,kappa)
+    dstress_dkappa_E = (this%stress_E(E,F,kappa+h) - this%stress_E(E,F,kappa-h))/(2*h)
   end function dstress_dkappa_E
 
 ! convert a state vector c of conserved variables to a vector p of

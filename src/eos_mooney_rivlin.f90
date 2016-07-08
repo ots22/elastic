@@ -11,6 +11,7 @@ module m_eos_mooney_rivlin
      procedure stress
      procedure hardening
      procedure dhardening_dkappa
+!!!  commented out to use the finite-difference formula in the base class
      procedure dstress_dkappa_E
      procedure init_from_config
   end type eos_mooney_rivlin
