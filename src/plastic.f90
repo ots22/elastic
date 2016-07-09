@@ -110,17 +110,20 @@ contains
     
     if (debug_output_p) print *, sigma0
 
+    hardening = eq%hardening(S,Fe,kappa)
+    yield_f = plmodel%yield_f(sigma, hardening)
+    ! Negative yield function (+eps) => unyielded, and the function
+    ! returns without modifying Fe and kappa.
+    if (yield_f.le.eps) return
+
+    ! If we reach this point, the material has yielded, so perform an
+    ! iterative relaxation to the yield surface.  The stopping
+    ! criterion (tested at the end of the loop) is now whether the
+    ! state is *on* the yield surface (+/- eps), not inside it, since
+    ! this is where the relaxed state should go, and it is possible a
+    ! step of the iterative solver sends the state significantly
+    ! inside the yield surface before it has converged.
     do iiter=1,maxiter
-       ! Fp can be assumed to be identity at the start
-
-       hardening = eq%hardening(S,Fe,kappa)
-       yield_f = plmodel%yield_f(sigma, hardening)
-
-       if (yield_f.le.eps) then
-          if (debug_output_p) print *, "final relaxed state:", Fe
-          return
-       end if
-
        if (iiter.eq.1) then
           dsigma_dge_ = eq%dstress_dg_E(S,Fe,kappa)
           dge_dFp_ = dge_dFp(gtot)
@@ -177,14 +180,10 @@ contains
 
        ge = matmul(Fp,gtot)
        Fe = inv3(ge)
+       hardening = eq%hardening(S,Fe,kappa)
+       yield_f = plmodel%yield_f(sigma, hardening)
 
-!      print *, "plastic solve: ", iiter, dzeta, dFpdot_dzeta_(1,1), dFpdot_dzeta_(2,2), dFpdot_dzeta_(3,3), dsigma_dFp_(1,1,1,1)
-
+       if (abs(yield_f).le.eps) return
     end do
-    ! write (0,*) "warning: did not converge in maxiter", yield_f
-    ! print *, "Ftot start: ", Ftot
-    ! print *, "sigma start: ", sigma0
-    ! print *, "Fe end:   ", Fe
-    ! print *, "sigma end:   ", sigma
   end subroutine plastic_relax
 end module m_plastic
