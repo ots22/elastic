@@ -163,6 +163,7 @@ contains
           write (12,*) iiter, sigma
           write (13,*) iiter, dsigma_dkappa_
           write (14,*) iiter, dkappadot_dzeta_
+          write (15,*) iiter, yield_f
        end if
        
        Fp_unscaled = Fp + dFpdot_dzeta_ * dzeta
