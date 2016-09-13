@@ -317,7 +317,6 @@ contains
        do iy=1,ny
           F = prim_get_F(solp(:,ix,iy))
           call plastic_relax(eq, plmodel, solp(prim_S,ix,iy), F, solp(prim_kappa,ix,iy),.false.)
-
           !!!! prim_F of solp now stores the relaxed deformation gradient
           !!!! (the prim_S component is unchanged)
           !!!!!solp(prim_F,ix,iy) = reshape(F,[9])

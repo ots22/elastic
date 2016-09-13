@@ -12,7 +12,8 @@ module m_eos_mooney_rivlin
      procedure hardening
      procedure dhardening_dkappa
 !!!  commented out to use the finite-difference formula in the base class
-     procedure dstress_dkappa_E
+!    procedure dstress_dkappa_E
+!    procedure dstress_dg_E
      procedure init_from_config
   end type eos_mooney_rivlin
 
@@ -151,6 +152,62 @@ contains
       include 'eos/mooney_rivlin_dstress_dkappa_e.inc'
     end associate
   end function dstress_dkappa_E
+
+  function dstress_dg_E(this, S, F, kappa)
+    use m_state, only: Cauchy_Green_right
+    use m_matutil, only: inv3
+    class(eos_mooney_rivlin) :: this
+    real, intent(in) :: S, F(3,3), kappa
+    real dstress_dg_E(3,3,3,3), E
+    real C(3,3), g(3,3)
+
+    real dstress_dg_E_num(3,3,3,3)
+
+    ! include file declares the temporary variables needed
+    include 'eos/mooney_rivlin_dstress_dg_e-vars.inc'
+
+!    dstress_dg_E_num = this%eos%dstress_dg_E(S,F,kappa)
+
+    C = Cauchy_Green_right(F)
+    E = this%E(S,F,kappa)
+    g = inv3(F)
+    associate (&
+         C11 => C(1,1),  &
+         C12 => C(1,2),  &
+         C13 => C(1,3),  &
+         C22 => C(2,2),  &
+         C23 => C(2,3),  &
+         C33 => C(3,3),  &
+         F11 => F(1,1),  &
+         F12 => F(1,2),  &
+         F13 => F(1,3),  &
+         F21 => F(2,1),  &
+         F22 => F(2,2),  &
+         F23 => F(2,3),  &
+         F31 => F(3,1),  &
+         F32 => F(3,2),  &
+         F33 => F(3,3),  &
+         g11 => g(1,1),  &
+         g12 => g(1,2),  &
+         g13 => g(1,3),  &
+         g21 => g(2,1),  &
+         g22 => g(2,2),  &
+         g23 => g(2,3),  &
+         g31 => g(3,1),  &
+         g32 => g(3,2),  &
+         g33 => g(3,3),  &
+         rho0   => this%rho0,     &
+         lambda_0 => this%lambda_0, &
+         lambda_s => this%lambda_s, &
+         mu_0 => this%mu_0, &
+         mu_s => this%mu_s, &
+         theta_0 => this%theta_0, &
+         theta_1 => this%theta_1)
+      ! include file that performs the computation
+      include 'eos/mooney_rivlin_dstress_dg_e.inc'
+    end associate
+    
+  end function dstress_dg_E
 
   subroutine init_from_config(this,u)
     use m_error

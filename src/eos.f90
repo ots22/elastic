@@ -109,9 +109,12 @@ contains
     real spfc_vol
     real rho, v(3), F(3,3), E, S, kappa
 
-    spfc_vol = 1/rhoF_density(eq%rho0, cons_get_rhoF(c))
-
     rho = cons_get_rho(c)
+!    spfc_vol = 1/rho
+!   Above should be equivalent to
+    spfc_vol = 1/rhoF_density(eq%rho0, cons_get_rhoF(c))
+!   but prefer using the conserved density
+
     v = spfc_vol * cons_get_mom(c)
     F = spfc_vol * cons_get_rhoF(c)
     E = spfc_vol * cons_get_rhoE(c) - 0.5*dot_product(v,v)
@@ -126,11 +129,14 @@ contains
     intent(in) eq, p
     class(eos) eq
     real, dimension(nq) :: p, c
-    real density 
     real v(3), F(3,3), S, kappa
     real rho, mom(3), rhoF(3,3), rhoE, rhokappa
-    
+    real density
+
+!   Should be equivalent to
+!   but prefer using the conserved density
     rho = prim_get_rho(p)
+
     v = prim_get_v(p)
     F = prim_get_F(p)
     S = prim_get_S(p)

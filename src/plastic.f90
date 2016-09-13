@@ -78,7 +78,7 @@ contains
     real, intent(inout) :: Fe(3,3), kappa
     real Ftot(3,3), gtot(3,3), ge(3,3), Fp(3,3), Fp_unscaled(3,3)
 
-    real, parameter :: eps=1e-4 ! stopping criterion
+    real, parameter :: eps=1e-5 ! stopping criterion
 
     ! loop couters
     integer i,j,k,l,m,n
@@ -107,7 +107,7 @@ contains
     Fp_unscaled = id3
     Ftot = Fe
     gtot = ge
-    
+
     if (debug_output_p) print *, sigma0
 
     hardening = eq%hardening(S,Fe,kappa)
@@ -123,19 +123,18 @@ contains
     ! this is where the relaxed state should go, and it is possible a
     ! step of the iterative solver sends the state significantly
     ! inside the yield surface before it has converged.
+
+    dsigma_dge_ = eq%dstress_dg_E(S,Fe,kappa)
+    dge_dFp_ = dge_dFp(gtot)
+
+    dsigma_dFp_ = 0
+    do i=1,3; do j=1,3; do k=1,3; do l=1,3; do m=1,3; do n=1,3
+       dsigma_dFp_(i,j,m,n) = dsigma_dFp_(i,j,m,n) + dsigma_dge_(i,j,k,l) * dge_dFp_(k,l,m,n)
+    end do; end do; end do; end do; end do; end do
+
+    dsigma_dkappa_ = eq%dstress_dkappa_E(S,Fe,kappa)
+
     do iiter=1,maxiter
-       if (iiter.eq.1) then
-          dsigma_dge_ = eq%dstress_dg_E(S,Fe,kappa)
-          dge_dFp_ = dge_dFp(gtot)
-
-          dsigma_dFp_ = 0
-          do i=1,3; do j=1,3; do k=1,3; do l=1,3; do m=1,3; do n=1,3
-             dsigma_dFp_(i,j,m,n) = dsigma_dFp_(i,j,m,n) + dsigma_dge_(i,j,k,l) * dge_dFp_(k,l,m,n)
-          end do; end do; end do; end do; end do; end do
-
-          dsigma_dkappa_ = eq%dstress_dkappa_E(S,Fe,kappa)
-       end if
-
        dhardening_dkappa_ = eq%dhardening_dkappa(S,Fe,kappa)
 
        df_dsigma_ = plmodel%df_dstress(sigma,hardening)
@@ -164,15 +163,18 @@ contains
           write (13,*) iiter, dsigma_dkappa_
           write (14,*) iiter, dkappadot_dzeta_
           write (15,*) iiter, yield_f
+          write (16,'(I3,(3E16.7E3))') iiter, reshape(dsigma_dFp_,[3,3,3,3],order=[4,3,2,1])
+          write (17,'(I3,(3E16.7E3))') iiter, reshape(dsigma_dge_,[3,3,3,3],order=[4,3,2,1])
+          write (18,'(I3,(3E16.7E3))') iiter, reshape(dge_dFp_,[3,3,3,3],order=[4,3,2,1])
        end if
-       
+
        Fp_unscaled = Fp + dFpdot_dzeta_ * dzeta
        Fp = det3(Fp_unscaled)**(-1.0/3.0) * Fp_unscaled
 
        kappa = kappa + dkappadot_dzeta_ * dzeta
 
        sigma = sigma0
-       do i=1,3; do j=1,3; 
+       do i=1,3; do j=1,3;
           do k=1,3; do l=1,3
              sigma(i,j) = sigma(i,j) + dsigma_dFp_(i,j,k,l) * (Fp(k,l) - id3(k,l))
           end do; end do;

@@ -87,6 +87,9 @@ contains
     rhokappa = u(cons_rhokappa)
   end function cons_get_rhokappa
 
+! These functions return the density implied by a given F or rhoF, and
+! the ambient density rho0.  That is, independent of the conserved
+! density in the state vector.
   pure function rhoF_density(rho0, rhoF) result(density)
     use m_matutil, only: det3
     real, intent(in) :: rho0, rhoF(3,3)

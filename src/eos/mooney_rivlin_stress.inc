@@ -27,7 +27,7 @@ stress(1,1) = F11*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F21*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F12*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
@@ -56,7 +56,7 @@ stress(1,1) = F11*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F31*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F13*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -86,7 +86,7 @@ stress(1,1) = F11*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(1,2) = F12*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(1,2) = F21*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -144,7 +144,7 @@ stress(1,2) = F12*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F32*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F23*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -174,7 +174,7 @@ stress(1,2) = F12*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(1,3) = F13*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(1,3) = F31*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -203,7 +203,7 @@ stress(1,3) = F13*(2*F11*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F23*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F32*(2*F11*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
@@ -291,7 +291,7 @@ stress(2,1) = F11*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F21*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F12*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
@@ -320,7 +320,7 @@ stress(2,1) = F11*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F31*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F13*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -350,7 +350,7 @@ stress(2,1) = F11*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(2,2) = F12*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(2,2) = F21*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -408,7 +408,7 @@ stress(2,2) = F12*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F32*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F23*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -438,7 +438,7 @@ stress(2,2) = F12*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(2,3) = F13*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(2,3) = F31*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -467,7 +467,7 @@ stress(2,3) = F13*(2*F21*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F23*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F32*(2*F21*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
@@ -555,7 +555,7 @@ stress(3,1) = F11*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F21*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F12*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
@@ -584,7 +584,7 @@ stress(3,1) = F11*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F31*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F13*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -614,7 +614,7 @@ stress(3,1) = F11*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(3,2) = F12*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(3,2) = F21*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -672,7 +672,7 @@ stress(3,2) = F12*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       (0.5d0*mu_0 + 0.5d0*mu_s*s)*(-C11*C23 + C12*C13)/(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11* &
       C22*C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) &
-      + F32*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
+      + F23*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)* &
       ((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0*C13*C22)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*((1.0d0/2.0d0)*C12*C23 - 1.0d0/2.0d0 &
@@ -702,7 +702,7 @@ stress(3,2) = F12*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))
 
-stress(3,3) = F13*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
+stress(3,3) = F31*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       kappa + exp(-kappa*theta_1)/theta_1)*((1.0d0/2.0d0)*C22*C33 - &
       1.0d0/2.0d0*C23**2)/sqrt(C11*C22*C33 - C11*C23**2 - C12**2*C33 + &
       2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0*lambda_0 + 0.5d0*lambda_s* &
@@ -731,7 +731,7 @@ stress(3,3) = F13*(2*F31*rho0*(0.5d0*mu_0 + 0.5d0*mu_s*s + theta_0*( &
       0.5d0*mu_0 + 0.5d0*mu_s*s)*(C12*C23 - C13*C22)/(C11*C22*C33 - C11 &
       *C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22))/sqrt(C11*C22* &
       C33 - C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22)) + &
-      F23*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
+      F32*(2*F31*rho0*(theta_0*(kappa + exp(-kappa*theta_1)/theta_1)*( &
       -1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0)*C13*C23)/sqrt(C11*C22*C33 - &
       C11*C23**2 - C12**2*C33 + 2*C12*C13*C23 - C13**2*C22) + 2*(0.5d0* &
       lambda_0 + 0.5d0*lambda_s*s)*(-1.0d0/2.0d0*C12*C33 + (1.0d0/2.0d0 &
