@@ -25,14 +25,18 @@ contains
     rhoF = cons_get_rhoF(cs)
     rhoE = cons_get_rhoE(cs)
 
-    sigma = eq%stress(S, F)
+!    sigma = eq%stress(S, F)
+    sigma = 0.0
 
-    rho_fl = v(dirn) * rho
+!    rho_fl = v(dirn) * rho
+    rho_fl = 0
     mom_fl = v(dirn) * mom - sigma(:,dirn)
-    rhoF_fl = v(dirn) * rhoF - (v.outer.rhoF(dirn,:))
+!    rhoF_fl = v(dirn) * rhoF - (v.outer.rhoF(dirn,:))
+    rhoF_fl = 0
     rhoE_fl = v(dirn) * rhoE - dot_product(v, sigma(:,dirn))
 
     flux = [rho_fl, mom_fl, rhoF_fl, rhoE_fl]
+
   end function flux
 
   function lax_friedrichs_flux(L, R, fl_L, fl_R, dx_dt) result(fl)
