@@ -57,7 +57,9 @@ contains
       real, intent(out) :: q(:,:)
       ! temporaries
       real, dimension(nq) :: Li, Ri, Lpi, Rpi, fl_Li, fl_Ri
-      integer ix, nx, iq, iquad
+      integer ix, iy, nx, iq, iquad
+
+      real curvature(nq,-1:1)
 
       nx = size(u,2)
 
@@ -94,6 +96,18 @@ contains
             call wenom_reconstruct_gqp(uRp_work(iq,ix,:), &
                  uRpq_work(iq,ix,1),uRpq_work(iq,ix,2))
          end do
+         ! do iy = -1,1
+         !    curvature(:,iy) = uLp_work(:,ix,iy+1) - 2*uLp_work(:,ix,iy) + uLp_work(:,ix,iy-1)
+         ! end do
+         ! do iquad = 1,nquad
+         !    uLpq_work(:,ix,iquad) = median_state(curvature,uLp_work(:,ix,-1:1),uLpq_work(:,ix,iquad))
+         ! end do
+         ! do iy = -1,1
+         !    curvature(:,iy) = uRp_work(:,ix,iy+1) - 2*uRp_work(:,ix,iy) + uRp_work(:,ix,iy-1)
+         ! end do
+         ! do iquad = 1,nquad
+         !    uRpq_work(:,ix,iquad) = median_state(curvature,uRp_work(:,ix,-1:1),uRpq_work(:,ix,iquad))
+         ! end do
       end do
 
 !     flux through the face is an integral average = a sum over the
