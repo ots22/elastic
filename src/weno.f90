@@ -101,7 +101,7 @@ contains
          + oL(2) * ( w(0) + k*(    -w(+1)             +      w(-1))) &
          + oL(3) * ( w(0) + k*(-3.0*w( 0) + 4.0*w(-1) -      w(-2)))
 
-    wR =   oR(1) * ( w(0) - k*(     w(+2) - 4.0*w(+1) +  3.0*w( 0))) &
+    wR =   oR(1) * ( w(0) - k*( 3.0*w(+2) - 4.0*w(+1) +      w( 0))) &
          + oR(2) * ( w(0) - k*(    -w(+1)             +      w(-1))) &
          + oR(3) * ( w(0) - k*(-3.0*w( 0) + 4.0*w(-1) -      w(-2)))
   end subroutine wenom_reconstruct_gqp
@@ -115,9 +115,9 @@ contains
     d_MD = minmod(d(:, 0),d(:,1))    
     d_LC = minmod(d(:,-1),d(:,0))
 
-    wR_UL = w(:,0) + 0.9 * (w(:,0) - w(:,-1))
+    wR_UL = w(:,0) + 2.0 * (w(:,0) - w(:,-1))
     wR_MD = 0.5 * (w(:,0) + w(:,1) - d_MD)
-    wR_LC = w(:,0) + 0.5 * (w(:,0) - w(:,-1)) + (0.9/3.0) * d_LC
+    wR_LC = w(:,0) + 0.5 * (w(:,0) - w(:,-1)) + (4.0/3.0) * d_LC
 
     wR_min = max(min(w(:,0),w(:,1),wR_MD), min(w(:,0),wR_UL,wR_LC))
     wR_max = min(max(w(:,0),w(:,1),wR_MD), max(w(:,0),wR_UL,wR_LC))
