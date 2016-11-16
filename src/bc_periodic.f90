@@ -31,12 +31,12 @@ contains
     ny = size(sol,3)
 
     forall (ib=1:nb)
-       sol(:,:,ib) = sol(:,:,nb+1)
-       sol(:,:,ny-ib+1) = sol(:,:,ny-nb)
+       sol(:,:,ib) = sol(:,:,ny-2*nb)
+       sol(:,:,ny-ib+1) = sol(:,:,nb+ib)
     end forall
     forall (ib=1:nb)
-       sol(:,ib,:) = sol(:,nb+1,:)
-       sol(:,nx-ib+1,:) = sol(:,nx-nb,:)
+       sol(:,ib,:) = sol(:,nx-2*nb,:)
+       sol(:,nx-ib+1,:) = sol(:,nb+ib,:)
     end forall
   end subroutine apply
 end module m_bc_periodic
