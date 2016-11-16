@@ -5,6 +5,7 @@ module m_config
   use m_ic
   use m_ic_RP
   use m_ic_gaussian
+  use m_ic_tophat
   use m_bc
   use m_bc_reflective
   use m_bc_periodic
@@ -87,6 +88,8 @@ contains
        allocate(ic_RP :: initial_conditions)
     case ('gaussian')
        allocate(ic_gaussian :: initial_conditions)
+    case ('tophat','top hat')
+       allocate(ic_tophat :: initial_conditions)
     case default
        call panic('unknown initial conditions requested: ' // ic_type)
     end select
