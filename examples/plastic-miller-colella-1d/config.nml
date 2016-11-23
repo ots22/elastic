@@ -1,0 +1,34 @@
+&domain
+	nx = 300
+	ny = 9
+	domain_length = 40.0
+/
+
+&config
+	max_wave_speed = 2.0
+	tmax = 5.0
+	outstep = 1
+	div_constraint_step = 0
+	eos_name = 'Mooney-Rivlin'
+	plastic_model_name = 'Mises-Huber'
+	ic_type = 'gaussian'
+	bc_type = 'periodic'
+/
+
+&plastic_mises_huber
+	yield_stress = 0.1
+/
+
+&eos_mooney_rivlin
+	rho0 = 1.0
+	mu_0 = 0.6
+	lambda_0 = 0.6
+	mu_s = 0.01
+	lambda_s = 0.01
+	theta_0 = 0.1
+	theta_1 = 10.0
+/
+
+&ic_gaussian
+        stddev = 5.0
+/
