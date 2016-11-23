@@ -14,7 +14,7 @@ $(SRC_DIR)/depend: $(SRC)
 -include $(SRC_DIR)/depend
 
 elastic2d: $(SRC_DIR)/depend $(ALL_OBJ)
-	$(FC) $(FCFLAGS) $(ALL_OBJ) -o elastic2d $(LDFLAGS) -llapack
+	$(FC) $(FCFLAGS) $(ALL_OBJ) -o elastic2d $(LDFLAGS)
 
 # these rules gain more dependencies from 'depend', some of which are
 # .mod files (hence the filter on the dependencies)
