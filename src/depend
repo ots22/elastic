@@ -1,4 +1,3 @@
-./L.o ./m_l.mod : ../../src/L.f90 ./m_flux.mod ./m_weno.mod ./m_error.mod ./m_ssprk3.mod ./m_domain.mod ./m_state.mod ./m_eos.mod ./m_time.mod 
 ./bc.o ./m_bc.mod : ../../src/bc.f90 ./m_eos.mod ./m_configurable.mod 
 ./bc_offset_periodic.o ./m_bc_offset_periodic.mod : ../../src/bc_offset_periodic.f90 ./m_eos.mod ./m_error.mod ./m_state.mod ./m_bc.mod 
 ./bc_periodic.o ./m_bc_periodic.mod : ../../src/bc_periodic.f90 ./m_eos.mod ./m_error.mod ./m_state.mod ./m_bc.mod 
@@ -14,9 +13,10 @@
 ./feuler.o ./m_feuler.mod : ../../src/feuler.f90 ./m_error.mod 
 ./flux.o ./m_flux.mod : ../../src/flux.f90 ./m_matutil.mod ./m_state.mod ./m_eos.mod 
 ./ic.o ./m_ic.mod : ../../src/ic.f90 ./m_eos.mod ./m_configurable.mod 
-./ic_RP.o ./m_ic_rp.mod : ../../src/ic_RP.f90 ./m_matutil.mod ./m_error.mod ./m_eos.mod ./m_state.mod ./m_ic.mod 
 ./ic_gaussian.o ./m_ic_gaussian.mod : ../../src/ic_gaussian.f90 ./m_matutil.mod ./m_domain.mod ./m_eos.mod ./m_state.mod ./m_ic.mod 
+./ic_RP.o ./m_ic_rp.mod : ../../src/ic_RP.f90 ./m_matutil.mod ./m_error.mod ./m_eos.mod ./m_state.mod ./m_ic.mod 
 ./ic_tophat.o ./m_ic_tophat.mod : ../../src/ic_tophat.f90 ./m_matutil.mod ./m_domain.mod ./m_eos.mod ./m_state.mod ./m_ic.mod 
+./L.o ./m_l.mod : ../../src/L.f90 ./m_flux.mod ./m_weno.mod ./m_error.mod ./m_ssprk3.mod ./m_domain.mod ./m_state.mod ./m_eos.mod ./m_time.mod 
 ./materials.o ./m_materials.mod : ../../src/materials.f90 ./m_eos_romenski.mod 
 ./matutil.o ./m_matutil.mod : ../../src/matutil.f90 
 ./output.o ./m_output.mod : ../../src/output.f90 ./m_domain.mod ./m_eos.mod ./m_state.mod ./m_matutil.mod 
