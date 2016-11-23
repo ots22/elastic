@@ -1,0 +1,42 @@
+&domain
+	nx = 200
+	ny = 100
+	domain_length = 40.0
+/
+
+&config
+	max_wave_speed = 10.0
+	tmax = 1.0
+	outstep = 5
+	div_constraint_step = 0
+	eos_name = 'Romenski'
+	ic_type = 'RP'
+	bc_type = 'offset periodic'
+/
+
+&eos_romenski
+	rho0 = 8.93
+	c0 = 4.6
+	l0 = 2.1
+	alpha = 1.0001
+	beta =  3.0001
+	gamma = 2.0001
+	cv = 3.9E-4
+	T0 = 300
+/
+
+&ic_RP
+        a = 0.785398163 ! PI/4
+
+	v_left = 0.00, 0.50, 1.00
+	F_left = 0.98, 0.00, 0.00,
+	       	 0.02, 1.00, 0.10,
+                 0.00, 0.00, 1.00
+	S_left = 1.0E-3
+
+	v_right = 0.00, 0.00, 0.00
+	F_right = 1.00, 0.00, 0.00,
+                  0.00, 1.00, 0.10,
+                  0.00, 0.00, 1.00
+	S_right = 0.00
+/
