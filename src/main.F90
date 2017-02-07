@@ -168,7 +168,7 @@ contains
     use m_config, only: eq
     use m_eos, only: cons_to_prim
     integer ix, iy
-!$OMP PARALLEL DO SCHEDULE(DYNAMIC)
+!$OMP PARALLEL DO SCHEDULE(DYNAMIC) COLLAPSE(2)
     do iy=1,ny; do ix=1,nx
        solp(:,ix,iy) = cons_to_prim(eq, sol(:,ix,iy))
     enddo; enddo
