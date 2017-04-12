@@ -1,10 +1,11 @@
 module m_config
   use m_eos
   use m_eos_romenski
+  use m_eos_mooney_rivlin
+  use m_eos_gp
   use m_plastic
   use m_plastic_null
   use m_plastic_mises_huber
-  use m_eos_mooney_rivlin
   use m_ic
   use m_ic_constant
   use m_ic_RP
@@ -85,6 +86,8 @@ contains
        allocate(eos_romenski :: eq)
     case ('mooney-rivlin','mooney rivlin')
        allocate(eos_mooney_rivlin :: eq)
+    case ('gp')
+       allocate(eos_gp :: eq)
     case default
        call panic('unknown equation of state requested: ' // eos_name)
     end select
@@ -195,11 +198,19 @@ program main
 ! wall clock time
   real time
 
+  print *, "about to init domain..."
   call init_domain(5)
+
+  print *, "about to init config..."
   call init_config(5)
+
+  print *, "about to init sim data..."
   call init_simulation_data
 
+  print *, "about to apply IC..."
   call apply_IC
+
+  print *, "about to apply BC..."
   call apply_BC
   call rescale_rhoF
   if (div_constraint) call divergence_constraint
@@ -207,6 +218,9 @@ program main
 
   stopflag = .false.
   call clock(clock_start)
+
+  print *, "entering main loop..."
+
   do 
      dt = (cfl/max_wave_speed) * dx;
      if (t + dt > tmax) then
@@ -224,7 +238,7 @@ program main
         call apply_BC
         call x_sweep
      end select
-     call plastic_src
+!     call plastic_src
      call apply_BC
      call rescale_rhoF
      if (div_constraint) then
@@ -271,6 +285,7 @@ contains
     end do
 !$OMP PARALLEL DO SCHEDULE(DYNAMIC)
     do iy=1+2,ny-2
+!       print *, "y=", iy
        sol_next(:,:,iy) = advance_solution(eq, sol(:,:,iy-2:iy+2), &
             & solp(:,:,iy-2:iy+2), uLp(:,:,iy-2:iy+2), uRp(:,:,iy-2:iy+2), &
             & dx/dt, dirn=1)
@@ -300,9 +315,10 @@ contains
     end do
 !$OMP PARALLEL DO SCHEDULE(DYNAMIC)
     do ix=1+2,nx-2
-        sol_next(:,ix,:) = advance_solution(eq, solt(:,:,ix-2:ix+2), &
-             & solpt(:,:,ix-2:ix+2), uLpt(:,:,ix-2:ix+2), uRpt(:,:,ix-2:ix+2), &
-             & dx/dt, dirn=2)
+!       print *, "x=", ix
+       sol_next(:,ix,:) = advance_solution(eq, solt(:,:,ix-2:ix+2), &
+            & solpt(:,:,ix-2:ix+2), uLpt(:,:,ix-2:ix+2), uRpt(:,:,ix-2:ix+2), &
+            & dx/dt, dirn=2)
     end do
 !$OMP END PARALLEL DO
     sol(:,:,:) = sol_next(:,:,:)

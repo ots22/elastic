@@ -55,7 +55,6 @@ contains
     real, intent(in) :: S, F(3,3), kappa
     real hardening
     hardening = 0.0
-    call warn("hardening unimplemented, assuming 0.0")
   end function hardening
 
   function dhardening_dkappa(this, S, F, kappa)

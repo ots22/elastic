@@ -18,12 +18,12 @@ contains
     C = matmul(transpose(F), F)
   end function Cauchy_Green_right
 
-  pure function dCinv_dF(q,p,Finv)
+  pure function dCinv_dF(p,q,Finv)
     integer, intent(in) :: q, p
     real, intent(in) :: Finv(3,3)
     real dCinv_dF(3,3), Cinv(3,3)
     integer i,j
-    Cinv = matmul(transpose(Finv), Finv)
+    Cinv = matmul(Finv, transpose(Finv))
     forall(i=1:3,j=1:3) dCinv_dF(i,j) = -Cinv(i,q)*Finv(j,p) - Cinv(j,q)*Finv(i,p)
   end function dCinv_dF
   
