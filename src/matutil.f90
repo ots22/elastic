@@ -163,4 +163,20 @@ contains
     grad_2d(2) = 0.5*(u(0,1) - u(0,-1))
   end function grad_2d
 
+  ! compute the Cholesky factorization
+  function cholesky(A)
+    real, intent(in) :: A(:,:)
+    real cholesky(size(A,1),size(A,1))
+    integer info, i, j
+    cholesky(:,:) = A
+    call DPOTRF('U', size(A,1), cholesky, size(A,1), info)
+
+    ! set the lower triangular (row i > col j) part to zero
+    do j=1,size(A,1)
+       do i=j+1,size(A,1)
+          cholesky(i,j) = 0
+       end do
+    end do
+  end function cholesky
+
 end module m_matutil
