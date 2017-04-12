@@ -21,6 +21,6 @@ arch = $(elastic4_arch)
 # make run in the build directory. MAKECMDGOALS is a make built-in
 # variable.
 build/$(arch):
-	mkdir -p $@
+	mkdir -p $@/test
 	cp makefiles/Makefile.$(arch) $@/Makefile
 	$(MAKE) -C $@ $(MAKECMDGOALS)
